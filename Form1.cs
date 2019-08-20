@@ -48,14 +48,28 @@ namespace iTextForm
                         doc.Add(image);
                         image.SpacingAfter = 1f;
                         Paragraph paragraph = new Paragraph();
-                        doc.Add(paragraph);                                  
-                      
+
+                        doc.Add(new iTextSharp.text.Paragraph(""));
+
                         paragraph.Add(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
                         doc.Add(paragraph);
-                        doc.Add(new iTextSharp.text.Paragraph("Vorname:" + Vorname.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("SAP Benutzer:" + txtUser.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Anrede:" + cmbAnrede.Text));
                         doc.Add(new iTextSharp.text.Paragraph("Nachname:" + Nachname.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Vorname:" + Vorname.Text));                        
                         doc.Add(new iTextSharp.text.Paragraph("Institute ID:" + InstId.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Matriculation Nummer:" + MatId.Text));                        
+                        doc.Add(new iTextSharp.text.Paragraph("Reference Nummer:" + RefID.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Finanzstelle" + txtFinStelle.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Gültigkeit Von" + txtVon.Text + "Gültigkeit Bis" + txtBis.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Einrichtung" + txtEinr.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Telephone" + txtEinr.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Email" + txtEinr.Text));
+                        doc.Add(new iTextSharp.text.Paragraph(""));
+                        doc.Add(new iTextSharp.text.Paragraph("SAP Benutzer:" + txtUser.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Anrede: :" + Nachname.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Institute ID:" + txtTel.Text));
+                        doc.Add(new iTextSharp.text.Paragraph("Matriculation Nummer:" + txtEmail.Text));
+
 
                         doc.Close();
                         Application.Exit();
