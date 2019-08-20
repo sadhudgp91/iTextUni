@@ -46,30 +46,67 @@ namespace iTextForm
                         iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(exportImage);
                         image.ScalePercent(24f);
                         doc.Add(image);
+                        iTextSharp.text.Paragraph title = new iTextSharp.text.Paragraph("\n\n");
                         image.SpacingAfter = 1f;
-                        Paragraph paragraph = new Paragraph();
+                        
+                        iTextSharp.text.Paragraph date = new iTextSharp.text.Paragraph(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
+                        date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
+                        doc.Add(date);
+                        title.SpacingAfter = 1f;
+                        iTextSharp.text.Paragraph space = new iTextSharp.text.Paragraph("\n\n");
+                        space.SpacingAfter = 1f;
 
-                        doc.Add(new iTextSharp.text.Paragraph(""));
+                        var table = new PdfPTable(2);
+                        table.WidthPercentage = 98;
 
-                        paragraph.Add(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
-                        doc.Add(paragraph);
-                        doc.Add(new iTextSharp.text.Paragraph("SAP Benutzer:" + txtUser.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Anrede:" + cmbAnrede.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Nachname:" + Nachname.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Vorname:" + Vorname.Text));                        
-                        doc.Add(new iTextSharp.text.Paragraph("Institute ID:" + InstId.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Reference Nummer:" + RefID.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Finanzstelle" + txtFinStelle.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Gültigkeit Von" + txtVon.Text + "Gültigkeit Bis" + txtBis.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Einrichtung" + txtEinr.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Telephone" + txtEinr.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Email" + txtEinr.Text));
-                        doc.Add(new iTextSharp.text.Paragraph(""));
-                        doc.Add(new iTextSharp.text.Paragraph("SAP Benutzer:" + txtUser.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Anrede: :" + Nachname.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Institute ID:" + txtTel.Text));
-                        doc.Add(new iTextSharp.text.Paragraph("Matriculation Nummer:" + txtEmail.Text));
+                        var cell = new PdfPCell();
+                        cell.Colspan = 2;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+                        table.AddCell(cell);
+                        space.SpacingAfter = 1f;
 
+                        table.AddCell("SAP Benutzer:");
+                        table.AddCell(txtUser.Text);           
+                        table.AddCell("Anrede:");
+                        table.AddCell(cmbAnrede.Text);
+                        table.AddCell("Nachname:");
+                        table.AddCell(Nachname.Text);
+                        table.AddCell("Vorname:");
+                        table.AddCell(Vorname.Text);
+                        table.AddCell("Institute ID:");
+                        table.AddCell(InstId.Text);
+                        table.AddCell("Reference Nummer:");
+                        table.AddCell(RefID.Text);
+                        table.AddCell("Finanzstelle:");
+                        table.AddCell(txtFinStelle.Text);
+                        table.AddCell("Gültigkeit - Von:");
+                        table.AddCell(dateTimePicker1.Text);
+                        table.AddCell("Gültigkeit - Bis:");
+                        table.AddCell(dateTimePicker2.Text);
+                        table.AddCell("Einrichtung:");
+                        table.AddCell(txtEinr.Text);
+                        table.AddCell("Telephone");
+                        table.AddCell(txtTel.Text);
+                        table.AddCell("Email:");
+                        table.AddCell(txtEmail.Text);
+                       
+                        doc.Add(table);
+                        
+
+
+                       
+                       // doc.Add(new iTextSharp.text.Paragraph("SAP Benutzer:" + txtUser.Text));
+                        //doc.Add(new iTextSharp.text.Paragraph("Anrede:" + cmbAnrede.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Nachname:" + Nachname.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Vorname:" + Vorname.Text));                        
+                       // doc.Add(new iTextSharp.text.Paragraph("Institute ID:" + InstId.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Reference Nummer:" + RefID.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Finanzstelle" + txtFinStelle.Text));
+                       //doc.Add(new iTextSharp.text.Paragraph("Gültigkeit Von" + txtVon.Text + "Gültigkeit Bis" + txtBis.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Einrichtung" + txtEinr.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Telephone" + txtTel.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph("Email" + txtEmail.Text));
+                       // doc.Add(new iTextSharp.text.Paragraph(""));
 
                         doc.Close();
                         Application.Exit();
@@ -86,5 +123,7 @@ namespace iTextForm
                 }
             }
         }
+
+        
     }
 }

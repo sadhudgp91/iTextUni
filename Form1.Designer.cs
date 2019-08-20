@@ -34,14 +34,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.RefID = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtInitPass = new System.Windows.Forms.TextBox();
             this.txtFinStelle = new System.Windows.Forms.TextBox();
             this.Label14 = new System.Windows.Forms.Label();
             this.chk1 = new System.Windows.Forms.CheckBox();
-            this.txtBis = new System.Windows.Forms.TextBox();
             this.Label11 = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
-            this.txtVon = new System.Windows.Forms.TextBox();
             this.Label9 = new System.Windows.Forms.Label();
             this.cmbAnrede = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -53,7 +50,6 @@
             this.Vorname = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.chk2 = new System.Windows.Forms.CheckBox();
-            this.btnGenPass2 = new System.Windows.Forms.Button();
             this.Label18 = new System.Windows.Forms.Label();
             this.txtTel = new System.Windows.Forms.TextBox();
             this.Nachname = new System.Windows.Forms.TextBox();
@@ -62,10 +58,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtFinadd = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.btnRollen = new System.Windows.Forms.Button();
-            this.btnFinStdazu = new System.Windows.Forms.Button();
             this.lstRollen = new System.Windows.Forms.ListBox();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.chk5 = new System.Windows.Forms.CheckBox();
@@ -73,6 +66,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.Panel2.SuspendLayout();
             this.Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,10 +87,10 @@
             // 
             this.BtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnSave.Location = new System.Drawing.Point(574, 471);
+            this.BtnSave.Location = new System.Drawing.Point(574, 446);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(99, 24);
-            this.BtnSave.TabIndex = 4;
+            this.BtnSave.TabIndex = 13;
             this.BtnSave.Text = "Generate PDF";
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click_1);
@@ -107,7 +102,7 @@
             this.InstId.Location = new System.Drawing.Point(102, 115);
             this.InstId.Name = "InstId";
             this.InstId.Size = new System.Drawing.Size(166, 20);
-            this.InstId.TabIndex = 2;
+            this.InstId.TabIndex = 5;
             this.InstId.Text = "";
             // 
             // label4
@@ -127,7 +122,7 @@
             this.RefID.Location = new System.Drawing.Point(102, 144);
             this.RefID.Name = "RefID";
             this.RefID.Size = new System.Drawing.Size(166, 23);
-            this.RefID.TabIndex = 3;
+            this.RefID.TabIndex = 6;
             this.RefID.Text = "";
             // 
             // label5
@@ -140,19 +135,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Reference Nr.";
             // 
-            // txtInitPass
-            // 
-            this.txtInitPass.Location = new System.Drawing.Point(574, 421);
-            this.txtInitPass.Name = "txtInitPass";
-            this.txtInitPass.Size = new System.Drawing.Size(98, 20);
-            this.txtInitPass.TabIndex = 44;
-            // 
             // txtFinStelle
             // 
             this.txtFinStelle.Location = new System.Drawing.Point(102, 184);
             this.txtFinStelle.Name = "txtFinStelle";
             this.txtFinStelle.Size = new System.Drawing.Size(166, 20);
-            this.txtFinStelle.TabIndex = 23;
+            this.txtFinStelle.TabIndex = 7;
             // 
             // Label14
             // 
@@ -173,17 +161,10 @@
             this.chk1.Text = "Mittelbewirtschafter Personal DZE";
             this.chk1.UseVisualStyleBackColor = true;
             // 
-            // txtBis
-            // 
-            this.txtBis.Location = new System.Drawing.Point(201, 231);
-            this.txtBis.Name = "txtBis";
-            this.txtBis.Size = new System.Drawing.Size(67, 20);
-            this.txtBis.TabIndex = 21;
-            // 
             // Label11
             // 
             this.Label11.AutoSize = true;
-            this.Label11.Location = new System.Drawing.Point(174, 235);
+            this.Label11.Location = new System.Drawing.Point(69, 244);
             this.Label11.Name = "Label11";
             this.Label11.Size = new System.Drawing.Size(21, 13);
             this.Label11.TabIndex = 20;
@@ -192,23 +173,16 @@
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(12, 235);
+            this.Label10.Location = new System.Drawing.Point(12, 232);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(51, 13);
             this.Label10.TabIndex = 19;
             this.Label10.Text = "Gültigkeit";
             // 
-            // txtVon
-            // 
-            this.txtVon.Location = new System.Drawing.Point(102, 231);
-            this.txtVon.Name = "txtVon";
-            this.txtVon.Size = new System.Drawing.Size(66, 20);
-            this.txtVon.TabIndex = 18;
-            // 
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(69, 235);
+            this.Label9.Location = new System.Drawing.Point(69, 219);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(26, 13);
             this.Label9.TabIndex = 17;
@@ -223,14 +197,14 @@
             this.cmbAnrede.Location = new System.Drawing.Point(102, 34);
             this.cmbAnrede.Name = "cmbAnrede";
             this.cmbAnrede.Size = new System.Drawing.Size(165, 21);
-            this.cmbAnrede.TabIndex = 16;
+            this.cmbAnrede.TabIndex = 2;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(102, 337);
+            this.txtEmail.Location = new System.Drawing.Point(102, 347);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(166, 20);
-            this.txtEmail.TabIndex = 15;
+            this.txtEmail.TabIndex = 12;
             // 
             // chk3
             // 
@@ -245,16 +219,16 @@
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(12, 337);
+            this.Label8.Location = new System.Drawing.Point(12, 347);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(46, 13);
+            this.Label8.Size = new System.Drawing.Size(32, 13);
             this.Label8.TabIndex = 14;
-            this.Label8.Text = "eMail ID";
+            this.Label8.Text = "eMail";
             // 
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(11, 305);
+            this.Label7.Location = new System.Drawing.Point(11, 315);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(84, 13);
             this.Label7.TabIndex = 12;
@@ -262,15 +236,15 @@
             // 
             // txtEinr
             // 
-            this.txtEinr.Location = new System.Drawing.Point(102, 274);
+            this.txtEinr.Location = new System.Drawing.Point(102, 284);
             this.txtEinr.Name = "txtEinr";
             this.txtEinr.Size = new System.Drawing.Size(165, 20);
-            this.txtEinr.TabIndex = 11;
+            this.txtEinr.TabIndex = 10;
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(12, 274);
+            this.Label6.Location = new System.Drawing.Point(12, 284);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(60, 13);
             this.Label6.TabIndex = 10;
@@ -281,7 +255,7 @@
             this.Vorname.Location = new System.Drawing.Point(102, 87);
             this.Vorname.Name = "Vorname";
             this.Vorname.Size = new System.Drawing.Size(166, 20);
-            this.Vorname.TabIndex = 7;
+            this.Vorname.TabIndex = 4;
             // 
             // label13
             // 
@@ -302,21 +276,12 @@
             this.chk2.Text = "Mittelbewirtschafter  DZE";
             this.chk2.UseVisualStyleBackColor = true;
             // 
-            // btnGenPass2
-            // 
-            this.btnGenPass2.Location = new System.Drawing.Point(337, 411);
-            this.btnGenPass2.Name = "btnGenPass2";
-            this.btnGenPass2.Size = new System.Drawing.Size(142, 23);
-            this.btnGenPass2.TabIndex = 45;
-            this.btnGenPass2.Text = "Generiere Passwort";
-            this.btnGenPass2.UseVisualStyleBackColor = true;
-            // 
             // Label18
             // 
             this.Label18.AutoSize = true;
             this.Label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label18.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Label18.Location = new System.Drawing.Point(418, 394);
+            this.Label18.Location = new System.Drawing.Point(337, 431);
             this.Label18.Name = "Label18";
             this.Label18.Size = new System.Drawing.Size(125, 13);
             this.Label18.TabIndex = 47;
@@ -324,17 +289,17 @@
             // 
             // txtTel
             // 
-            this.txtTel.Location = new System.Drawing.Point(102, 305);
+            this.txtTel.Location = new System.Drawing.Point(102, 315);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(165, 20);
-            this.txtTel.TabIndex = 13;
+            this.txtTel.TabIndex = 11;
             // 
             // Nachname
             // 
             this.Nachname.Location = new System.Drawing.Point(102, 61);
             this.Nachname.Name = "Nachname";
             this.Nachname.Size = new System.Drawing.Size(166, 20);
-            this.Nachname.TabIndex = 5;
+            this.Nachname.TabIndex = 3;
             // 
             // chk4
             // 
@@ -373,32 +338,10 @@
             // 
             // txtFinadd
             // 
-            this.txtFinadd.Location = new System.Drawing.Point(338, 217);
+            this.txtFinadd.Location = new System.Drawing.Point(338, 227);
             this.txtFinadd.Name = "txtFinadd";
             this.txtFinadd.Size = new System.Drawing.Size(124, 20);
             this.txtFinadd.TabIndex = 49;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label19.Location = new System.Drawing.Point(198, 215);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 13);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "ddmmyyyy";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label20.Location = new System.Drawing.Point(99, 215);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 13);
-            this.label20.TabIndex = 24;
-            this.label20.Text = "ddmmyyyy";
             // 
             // btnRollen
             // 
@@ -409,20 +352,11 @@
             this.btnRollen.Text = "Rollen zusammenstellen";
             this.btnRollen.UseVisualStyleBackColor = true;
             // 
-            // btnFinStdazu
-            // 
-            this.btnFinStdazu.Location = new System.Drawing.Point(28, 471);
-            this.btnFinStdazu.Name = "btnFinStdazu";
-            this.btnFinStdazu.Size = new System.Drawing.Size(199, 24);
-            this.btnFinStdazu.TabIndex = 48;
-            this.btnFinStdazu.Text = "Finanzstelle hinzufügen";
-            this.btnFinStdazu.UseVisualStyleBackColor = true;
-            // 
             // lstRollen
             // 
             this.lstRollen.AllowDrop = true;
             this.lstRollen.FormattingEnabled = true;
-            this.lstRollen.Location = new System.Drawing.Point(338, 244);
+            this.lstRollen.Location = new System.Drawing.Point(338, 265);
             this.lstRollen.Name = "lstRollen";
             this.lstRollen.Size = new System.Drawing.Size(334, 147);
             this.lstRollen.Sorted = true;
@@ -473,12 +407,12 @@
             // 
             // Panel1
             // 
+            this.Panel1.Controls.Add(this.dateTimePicker2);
+            this.Panel1.Controls.Add(this.dateTimePicker1);
             this.Panel1.Controls.Add(this.txtFinStelle);
             this.Panel1.Controls.Add(this.Label14);
-            this.Panel1.Controls.Add(this.txtBis);
             this.Panel1.Controls.Add(this.Label11);
             this.Panel1.Controls.Add(this.Label10);
-            this.Panel1.Controls.Add(this.txtVon);
             this.Panel1.Controls.Add(this.Label9);
             this.Panel1.Controls.Add(this.cmbAnrede);
             this.Panel1.Controls.Add(this.txtEmail);
@@ -498,11 +432,9 @@
             this.Panel1.Controls.Add(this.label16);
             this.Panel1.Controls.Add(this.txtUser);
             this.Panel1.Controls.Add(this.label23);
-            this.Panel1.Controls.Add(this.label19);
-            this.Panel1.Controls.Add(this.label20);
             this.Panel1.Location = new System.Drawing.Point(28, 84);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(287, 371);
+            this.Panel1.Size = new System.Drawing.Size(289, 386);
             this.Panel1.TabIndex = 34;
             // 
             // label23
@@ -514,16 +446,27 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "SAP Benutzer";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(102, 219);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
+            this.dateTimePicker2.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 506);
-            this.Controls.Add(this.txtInitPass);
-            this.Controls.Add(this.btnGenPass2);
+            this.ClientSize = new System.Drawing.Size(707, 562);
             this.Controls.Add(this.Label18);
             this.Controls.Add(this.txtFinadd);
-            this.Controls.Add(this.btnFinStdazu);
             this.Controls.Add(this.lstRollen);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
@@ -549,14 +492,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox RefID;
         private System.Windows.Forms.Label label5;
-        internal System.Windows.Forms.TextBox txtInitPass;
         internal System.Windows.Forms.TextBox txtFinStelle;
         internal System.Windows.Forms.Label Label14;
         internal System.Windows.Forms.CheckBox chk1;
-        internal System.Windows.Forms.TextBox txtBis;
         internal System.Windows.Forms.Label Label11;
         internal System.Windows.Forms.Label Label10;
-        internal System.Windows.Forms.TextBox txtVon;
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.ComboBox cmbAnrede;
         internal System.Windows.Forms.TextBox txtEmail;
@@ -568,7 +508,6 @@
         internal System.Windows.Forms.TextBox Vorname;
         internal System.Windows.Forms.Label label13;
         internal System.Windows.Forms.CheckBox chk2;
-        internal System.Windows.Forms.Button btnGenPass2;
         internal System.Windows.Forms.Label Label18;
         internal System.Windows.Forms.TextBox txtTel;
         internal System.Windows.Forms.TextBox Nachname;
@@ -577,10 +516,7 @@
         internal System.Windows.Forms.Label label16;
         internal System.Windows.Forms.TextBox txtUser;
         internal System.Windows.Forms.TextBox txtFinadd;
-        internal System.Windows.Forms.Label label19;
-        internal System.Windows.Forms.Label label20;
         internal System.Windows.Forms.Button btnRollen;
-        internal System.Windows.Forms.Button btnFinStdazu;
         public System.Windows.Forms.ListBox lstRollen;
         internal System.Windows.Forms.Panel Panel2;
         internal System.Windows.Forms.CheckBox chk5;
@@ -588,6 +524,8 @@
         internal System.Windows.Forms.Label label22;
         internal System.Windows.Forms.Panel Panel1;
         internal System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
