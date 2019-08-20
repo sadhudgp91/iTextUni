@@ -1,0 +1,10 @@
+C:\Users\ac131128\source\repos\iText\bin\Debug\netcoreapp2.1\iText.deps.json
+C:\Users\ac131128\source\repos\iText\bin\Debug\netcoreapp2.1\iText.runtimeconfig.json
+C:\Users\ac131128\source\repos\iText\bin\Debug\netcoreapp2.1\iText.runtimeconfig.dev.json
+C:\Users\ac131128\source\repos\iText\bin\Debug\netcoreapp2.1\iText.dll
+C:\Users\ac131128\source\repos\iText\obj\Debug\netcoreapp2.1\iText.csproj.CoreCompileInputs.cache
+C:\Users\ac131128\source\repos\iText\obj\Debug\netcoreapp2.1\iText.AssemblyInfoInputs.cache
+C:\Users\ac131128\source\repos\iText\obj\Debug\netcoreapp2.1\iText.AssemblyInfo.cs
+C:\Users\ac131128\source\repos\iText\bin\Debug\netcoreapp2.1\iText.pdb
+C:\Users\ac131128\source\repos\iText\obj\Debug\netcoreapp2.1\iText.dll
+C:\Users\ac131128\source\repos\iText\obj\Debug\netcoreapp2.1\iText.pdb
