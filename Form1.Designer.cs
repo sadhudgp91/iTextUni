@@ -60,13 +60,13 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.InstId = new System.Windows.Forms.TextBox();
+            this.RefID = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.benutzer = new System.Windows.Forms.Button();
-            this.RefID = new System.Windows.Forms.TextBox();
-            this.InstId = new System.Windows.Forms.TextBox();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +77,7 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lstRollen = new System.Windows.Forms.ListBox();
             this.Panel2.SuspendLayout();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -97,7 +98,7 @@
             // 
             this.BtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnSave.Location = new System.Drawing.Point(737, 488);
+            this.BtnSave.Location = new System.Drawing.Point(737, 487);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(99, 24);
             this.BtnSave.TabIndex = 13;
@@ -317,15 +318,18 @@
             // 
             // btnRollen
             // 
-            this.btnRollen.Location = new System.Drawing.Point(353, 79);
+            this.btnRollen.Location = new System.Drawing.Point(16, 151);
             this.btnRollen.Name = "btnRollen";
-            this.btnRollen.Size = new System.Drawing.Size(122, 45);
+            this.btnRollen.Size = new System.Drawing.Size(188, 33);
             this.btnRollen.TabIndex = 5;
-            this.btnRollen.Text = "Rollen zusammenstellen";
+            this.btnRollen.Text = "Rollen zusammenstellen/entfernen";
             this.btnRollen.UseVisualStyleBackColor = true;
+            this.btnRollen.Click += new System.EventHandler(this.BtnRollen_Click);
             // 
             // Panel2
             // 
+            this.Panel2.Controls.Add(this.lstRollen);
+            this.Panel2.Controls.Add(this.dataGridView1);
             this.Panel2.Controls.Add(this.btnRollen);
             this.Panel2.Controls.Add(this.chk5);
             this.Panel2.Controls.Add(this.chk4);
@@ -335,7 +339,7 @@
             this.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel2.Location = new System.Drawing.Point(337, 84);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(499, 134);
+            this.Panel2.Size = new System.Drawing.Size(499, 386);
             this.Panel2.TabIndex = 37;
             // 
             // chk5
@@ -400,6 +404,20 @@
             this.Panel1.Size = new System.Drawing.Size(289, 386);
             this.Panel1.TabIndex = 34;
             // 
+            // InstId
+            // 
+            this.InstId.Location = new System.Drawing.Point(101, 118);
+            this.InstId.Name = "InstId";
+            this.InstId.Size = new System.Drawing.Size(166, 20);
+            this.InstId.TabIndex = 24;
+            // 
+            // RefID
+            // 
+            this.RefID.Location = new System.Drawing.Point(101, 147);
+            this.RefID.Name = "RefID";
+            this.RefID.Size = new System.Drawing.Size(166, 20);
+            this.RefID.TabIndex = 23;
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
@@ -440,35 +458,21 @@
             this.Column9,
             this.Column10,
             this.Column11});
-            this.dataGridView1.Location = new System.Drawing.Point(337, 231);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 190);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(499, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(468, 193);
             this.dataGridView1.TabIndex = 50;
             // 
             // benutzer
             // 
-            this.benutzer.Location = new System.Drawing.Point(170, 488);
+            this.benutzer.Location = new System.Drawing.Point(100, 487);
             this.benutzer.Name = "benutzer";
             this.benutzer.Size = new System.Drawing.Size(147, 23);
             this.benutzer.TabIndex = 51;
             this.benutzer.Text = "benutzer erstellen";
             this.benutzer.UseVisualStyleBackColor = true;
             this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
-            // 
-            // RefID
-            // 
-            this.RefID.Location = new System.Drawing.Point(101, 147);
-            this.RefID.Name = "RefID";
-            this.RefID.Size = new System.Drawing.Size(166, 20);
-            this.RefID.TabIndex = 23;
-            // 
-            // InstId
-            // 
-            this.InstId.Location = new System.Drawing.Point(101, 118);
-            this.InstId.Name = "InstId";
-            this.InstId.Size = new System.Drawing.Size(166, 20);
-            this.InstId.TabIndex = 24;
             // 
             // Column2
             // 
@@ -528,17 +532,26 @@
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "Tel.Nebenstelle";
+            this.Column11.HeaderText = "Tel. Nr.";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            // 
+            // lstRollen
+            // 
+            this.lstRollen.AllowDrop = true;
+            this.lstRollen.FormattingEnabled = true;
+            this.lstRollen.Location = new System.Drawing.Point(212, 11);
+            this.lstRollen.Name = "lstRollen";
+            this.lstRollen.Size = new System.Drawing.Size(274, 173);
+            this.lstRollen.Sorted = true;
+            this.lstRollen.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 544);
+            this.ClientSize = new System.Drawing.Size(854, 533);
             this.Controls.Add(this.benutzer);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
@@ -608,6 +621,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        public System.Windows.Forms.ListBox lstRollen;
     }
 }
 
