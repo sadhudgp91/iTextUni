@@ -26,6 +26,7 @@ namespace iTextForm
             InitializeComponent();
             //Hide print button
             BtnSave.Enabled = false;
+            BtnSave.BackColor = Color.Gray;
         }
 
         // KS: Function to save the data into PDF format
@@ -113,6 +114,9 @@ namespace iTextForm
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
 
+                        // add listbox values from checked checkboxes                        
+                       
+                        
                         //close the document
                         doc.Close();
                         Application.Exit();
@@ -153,7 +157,7 @@ namespace iTextForm
             dataGridView1.Rows.Add(row);
             //once data has been addded to Gridview, make print button visible
             BtnSave.Enabled = true;
-
+            BtnSave.BackColor = Color.LawnGreen;
         }
 
         //Checkbox values
