@@ -55,7 +55,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.btnRollen = new System.Windows.Forms.Button();
-            this.lstRollen = new System.Windows.Forms.ListBox();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.chk5 = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -102,7 +101,7 @@
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(99, 24);
             this.BtnSave.TabIndex = 13;
-            this.BtnSave.Text = "Generate PDF";
+            this.BtnSave.Text = "PDF generieren";
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click_1);
             // 
@@ -325,16 +324,6 @@
             this.btnRollen.Text = "Rollen zusammenstellen";
             this.btnRollen.UseVisualStyleBackColor = true;
             // 
-            // lstRollen
-            // 
-            this.lstRollen.AllowDrop = true;
-            this.lstRollen.FormattingEnabled = true;
-            this.lstRollen.Location = new System.Drawing.Point(337, 323);
-            this.lstRollen.Name = "lstRollen";
-            this.lstRollen.Size = new System.Drawing.Size(499, 147);
-            this.lstRollen.Sorted = true;
-            this.lstRollen.TabIndex = 38;
-            // 
             // Panel2
             // 
             this.Panel2.Controls.Add(this.btnRollen);
@@ -343,6 +332,7 @@
             this.Panel2.Controls.Add(this.chk3);
             this.Panel2.Controls.Add(this.chk2);
             this.Panel2.Controls.Add(this.chk1);
+            this.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel2.Location = new System.Drawing.Point(337, 84);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(499, 134);
@@ -362,7 +352,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(341, 67);
+            this.label21.Location = new System.Drawing.Point(334, 55);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(56, 13);
             this.label21.TabIndex = 36;
@@ -372,7 +362,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(25, 67);
+            this.label22.Location = new System.Drawing.Point(25, 55);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(94, 13);
             this.label22.TabIndex = 35;
@@ -453,7 +443,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(337, 231);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(499, 83);
+            this.dataGridView1.Size = new System.Drawing.Size(499, 239);
             this.dataGridView1.TabIndex = 50;
             // 
             // benutzer
@@ -549,7 +539,6 @@
             this.ClientSize = new System.Drawing.Size(876, 544);
             this.Controls.Add(this.benutzer);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.lstRollen);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
@@ -597,7 +586,6 @@
         internal System.Windows.Forms.Label label16;
         internal System.Windows.Forms.TextBox txtUser;
         internal System.Windows.Forms.Button btnRollen;
-        public System.Windows.Forms.ListBox lstRollen;
         internal System.Windows.Forms.Panel Panel2;
         internal System.Windows.Forms.CheckBox chk5;
         internal System.Windows.Forms.Label label21;

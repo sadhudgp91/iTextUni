@@ -23,12 +23,15 @@ namespace iTextForm
         public Form1()
         {
             InitializeComponent();
+            BtnSave.Enabled = false;
         }
 
         
         private void BtnSave_Click_1(object sender, EventArgs e)
         {
             //string imagepath = "‪C:\\Users\\ac131128\\Pictures\\unistuttgart.png";
+
+            
             string imagepath = Environment.CurrentDirectory;
             var exportImage = System.IO.Path.Combine(imagepath, "..\\..\\public\\unistuttgart.png");
 
@@ -37,6 +40,11 @@ namespace iTextForm
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
+                    BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD , BaseFont.CP1257, BaseFont.NOT_EMBEDDED);
+                    BaseFont rowfont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1257, BaseFont.NOT_EMBEDDED);
+                    iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font fontcell = new iTextSharp.text.Font(rowfont, 10, iTextSharp.text.Font.NORMAL);
+
                     try
                     {
                         PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
@@ -62,30 +70,33 @@ namespace iTextForm
 
                         //Creating iTextSharp Table from the DataTable data
                         PdfPTable pdfTable = new PdfPTable(dataGridView1.ColumnCount);
-                        pdfTable.DefaultCell.Padding = 8;
+                        pdfTable.DefaultCell.Padding = 2;
                         pdfTable.WidthPercentage = 100;
                         pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-                        pdfTable.DefaultCell.BorderWidth = 1;
+                        pdfTable.DefaultCell.BorderWidth = 0;
+                        
 
                         //Adding Header row
                         foreach (DataGridViewColumn column in dataGridView1.Columns)
                         {
-                            PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-                            cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                            PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, font));
+                            cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);                            
                             //cell.Colspan = 2;
                             pdfTable.AddCell(cell);
                         }
+                       
 
                         //Adding DataRow
                         foreach (DataGridViewRow row in dataGridView1.Rows)
-                        {
-                            foreach (DataGridViewCell cell in row.Cells)
+                        {                            
+                            foreach (DataGridViewCell cell in row.Cells)                            
                             {
+                                PdfPCell Spalte0 = new PdfPCell(new Phrase(cell.Value.ToString(), fontcell));
                                 if (cell.Value == null)
                                 {                                   
                                   cell.Value = "null";
-                                }
-                                pdfTable.AddCell(cell.Value.ToString());
+                                }                               
+                                pdfTable.AddCell(Spalte0); 
                             }
                         }
 
@@ -139,7 +150,8 @@ namespace iTextForm
             
             string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
             dataGridView1.Rows.Add(row);
-           
+            BtnSave.Enabled = true;
+
         }
     }
 }
