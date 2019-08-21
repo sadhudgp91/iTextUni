@@ -5,12 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 
 namespace iTextForm
@@ -22,12 +25,7 @@ namespace iTextForm
             InitializeComponent();
         }
 
-        private void Textarea_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
+        
         private void BtnSave_Click_1(object sender, EventArgs e)
         {
             //string imagepath = "‪C:\\Users\\ac131128\\Pictures\\unistuttgart.png";
@@ -38,7 +36,7 @@ namespace iTextForm
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4);
+                    iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
                     try
                     {
                         PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
@@ -48,65 +46,61 @@ namespace iTextForm
                         doc.Add(image);
                         iTextSharp.text.Paragraph title = new iTextSharp.text.Paragraph("\n\n");
                         image.SpacingAfter = 1f;
-                        
+
+                        doc.Add(new Paragraph("\n"));
+                        var spacerParagraph2 = new Paragraph();
+                        spacerParagraph2.SpacingBefore = 4f;
+                        spacerParagraph2.SpacingAfter = 1f;
+                        doc.Add(spacerParagraph2);
+
+
+                        title.SpacingAfter = 1f;
+                        iTextSharp.text.Paragraph space = new iTextSharp.text.Paragraph("\n\n");
+                        space.SpacingBefore = 1f;
+
+                        space.SpacingAfter = 1f;
+
+                        //Creating iTextSharp Table from the DataTable data
+                        PdfPTable pdfTable = new PdfPTable(dataGridView1.ColumnCount);
+                        pdfTable.DefaultCell.Padding = 8;
+                        pdfTable.WidthPercentage = 100;
+                        pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                        pdfTable.DefaultCell.BorderWidth = 1;
+
+                        //Adding Header row
+                        foreach (DataGridViewColumn column in dataGridView1.Columns)
+                        {
+                            PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                            cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                            //cell.Colspan = 2;
+                            pdfTable.AddCell(cell);
+                        }
+
+                        //Adding DataRow
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                if (cell.Value == null)
+                                {                                   
+                                  cell.Value = "null";
+                                }
+                                pdfTable.AddCell(cell.Value.ToString());
+                            }
+                        }
+
+                        doc.Add(pdfTable);
+
+                        doc.Add(new Paragraph("\n"));
+                        var spacerParagraph = new Paragraph();
+                        spacerParagraph.SpacingBefore = 4f;
+                        spacerParagraph.SpacingAfter = 1f;
+                        doc.Add(spacerParagraph);
+
                         iTextSharp.text.Paragraph date = new iTextSharp.text.Paragraph(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
-                        title.SpacingAfter = 1f;
-                        iTextSharp.text.Paragraph space = new iTextSharp.text.Paragraph("\n\n");
-                        space.SpacingAfter = 1f;
 
-                        var table = new PdfPTable(2);
-                        table.WidthPercentage = 98;
-
-                        var cell = new PdfPCell();
-                        cell.Colspan = 2;
-                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
-                        table.AddCell(cell);
-                        space.SpacingAfter = 1f;
-
-                        table.AddCell("SAP Benutzer:");
-                        table.AddCell(txtUser.Text);           
-                        table.AddCell("Anrede:");
-                        table.AddCell(cmbAnrede.Text);
-                        table.AddCell("Nachname:");
-                        table.AddCell(Nachname.Text);
-                        table.AddCell("Vorname:");
-                        table.AddCell(Vorname.Text);
-                        table.AddCell("Institute ID:");
-                        table.AddCell(InstId.Text);
-                        table.AddCell("Reference Nummer:");
-                        table.AddCell(RefID.Text);
-                        table.AddCell("Finanzstelle:");
-                        table.AddCell(txtFinStelle.Text);
-                        table.AddCell("Gültigkeit - Von:");
-                        table.AddCell(dateTimePicker1.Text);
-                        table.AddCell("Gültigkeit - Bis:");
-                        table.AddCell(dateTimePicker2.Text);
-                        table.AddCell("Einrichtung:");
-                        table.AddCell(txtEinr.Text);
-                        table.AddCell("Telephone");
-                        table.AddCell(txtTel.Text);
-                        table.AddCell("Email:");
-                        table.AddCell(txtEmail.Text);
-                       
-                        doc.Add(table);
-                        
-
-
-                       
-                       // doc.Add(new iTextSharp.text.Paragraph("SAP Benutzer:" + txtUser.Text));
-                        //doc.Add(new iTextSharp.text.Paragraph("Anrede:" + cmbAnrede.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Nachname:" + Nachname.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Vorname:" + Vorname.Text));                        
-                       // doc.Add(new iTextSharp.text.Paragraph("Institute ID:" + InstId.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Reference Nummer:" + RefID.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Finanzstelle" + txtFinStelle.Text));
-                       //doc.Add(new iTextSharp.text.Paragraph("Gültigkeit Von" + txtVon.Text + "Gültigkeit Bis" + txtBis.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Einrichtung" + txtEinr.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Telephone" + txtTel.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph("Email" + txtEmail.Text));
-                       // doc.Add(new iTextSharp.text.Paragraph(""));
 
                         doc.Close();
                         Application.Exit();
@@ -124,6 +118,28 @@ namespace iTextForm
             }
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Benutzer_Click(object sender, EventArgs e)
+        {
+            
+            string sapuser = txtUser.Text;
+            string vname = Vorname.Text;
+            string Nname = Nachname.Text;
+            string eMail = txtEmail.Text;
+            string InstID = InstId.Text;
+            string Finanz = txtFinStelle.Text;
+            string von = dateTimePicker1.Text;
+            string bis = dateTimePicker2.Text;
+            string einrichtung = txtEinr.Text;
+            string tel = txtTel.Text;
+            
+            string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
+            dataGridView1.Rows.Add(row);
+           
+        }
     }
 }

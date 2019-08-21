@@ -30,9 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.BtnSave = new System.Windows.Forms.Button();
-            this.InstId = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.RefID = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFinStelle = new System.Windows.Forms.TextBox();
             this.Label14 = new System.Windows.Forms.Label();
@@ -50,14 +48,12 @@
             this.Vorname = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.chk2 = new System.Windows.Forms.CheckBox();
-            this.Label18 = new System.Windows.Forms.Label();
             this.txtTel = new System.Windows.Forms.TextBox();
             this.Nachname = new System.Windows.Forms.TextBox();
             this.chk4 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtFinadd = new System.Windows.Forms.TextBox();
             this.btnRollen = new System.Windows.Forms.Button();
             this.lstRollen = new System.Windows.Forms.ListBox();
             this.Panel2 = new System.Windows.Forms.Panel();
@@ -65,11 +61,26 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label23 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.benutzer = new System.Windows.Forms.Button();
+            this.RefID = new System.Windows.Forms.TextBox();
+            this.InstId = new System.Windows.Forms.TextBox();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Panel2.SuspendLayout();
             this.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +98,7 @@
             // 
             this.BtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnSave.Location = new System.Drawing.Point(574, 446);
+            this.BtnSave.Location = new System.Drawing.Point(737, 488);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(99, 24);
             this.BtnSave.TabIndex = 13;
@@ -95,41 +106,21 @@
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click_1);
             // 
-            // InstId
-            // 
-            this.InstId.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.InstId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InstId.Location = new System.Drawing.Point(102, 115);
-            this.InstId.Name = "InstId";
-            this.InstId.Size = new System.Drawing.Size(166, 20);
-            this.InstId.TabIndex = 5;
-            this.InstId.Text = "";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label4.Location = new System.Drawing.Point(12, 118);
+            this.label4.Location = new System.Drawing.Point(12, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "InstID";
             // 
-            // RefID
-            // 
-            this.RefID.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RefID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RefID.Location = new System.Drawing.Point(102, 144);
-            this.RefID.Name = "RefID";
-            this.RefID.Size = new System.Drawing.Size(166, 23);
-            this.RefID.TabIndex = 6;
-            this.RefID.Text = "";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label5.Location = new System.Drawing.Point(12, 144);
+            this.label5.Location = new System.Drawing.Point(12, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 8;
@@ -137,7 +128,7 @@
             // 
             // txtFinStelle
             // 
-            this.txtFinStelle.Location = new System.Drawing.Point(102, 184);
+            this.txtFinStelle.Location = new System.Drawing.Point(102, 179);
             this.txtFinStelle.Name = "txtFinStelle";
             this.txtFinStelle.Size = new System.Drawing.Size(166, 20);
             this.txtFinStelle.TabIndex = 7;
@@ -145,7 +136,7 @@
             // Label14
             // 
             this.Label14.AutoSize = true;
-            this.Label14.Location = new System.Drawing.Point(12, 184);
+            this.Label14.Location = new System.Drawing.Point(12, 181);
             this.Label14.Name = "Label14";
             this.Label14.Size = new System.Drawing.Size(62, 13);
             this.Label14.TabIndex = 22;
@@ -260,7 +251,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 90);
+            this.label13.Location = new System.Drawing.Point(12, 91);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(49, 13);
             this.label13.TabIndex = 6;
@@ -275,17 +266,6 @@
             this.chk2.TabIndex = 1;
             this.chk2.Text = "Mittelbewirtschafter  DZE";
             this.chk2.UseVisualStyleBackColor = true;
-            // 
-            // Label18
-            // 
-            this.Label18.AutoSize = true;
-            this.Label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label18.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Label18.Location = new System.Drawing.Point(337, 431);
-            this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(125, 13);
-            this.Label18.TabIndex = 47;
-            this.Label18.Text = "Duplikate werden entfern";
             // 
             // txtTel
             // 
@@ -314,7 +294,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 64);
+            this.label15.Location = new System.Drawing.Point(12, 65);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 13);
             this.label15.TabIndex = 4;
@@ -336,16 +316,9 @@
             this.txtUser.Size = new System.Drawing.Size(165, 20);
             this.txtUser.TabIndex = 1;
             // 
-            // txtFinadd
-            // 
-            this.txtFinadd.Location = new System.Drawing.Point(338, 227);
-            this.txtFinadd.Name = "txtFinadd";
-            this.txtFinadd.Size = new System.Drawing.Size(124, 20);
-            this.txtFinadd.TabIndex = 49;
-            // 
             // btnRollen
             // 
-            this.btnRollen.Location = new System.Drawing.Point(208, 77);
+            this.btnRollen.Location = new System.Drawing.Point(353, 79);
             this.btnRollen.Name = "btnRollen";
             this.btnRollen.Size = new System.Drawing.Size(122, 45);
             this.btnRollen.TabIndex = 5;
@@ -356,9 +329,9 @@
             // 
             this.lstRollen.AllowDrop = true;
             this.lstRollen.FormattingEnabled = true;
-            this.lstRollen.Location = new System.Drawing.Point(338, 265);
+            this.lstRollen.Location = new System.Drawing.Point(337, 323);
             this.lstRollen.Name = "lstRollen";
-            this.lstRollen.Size = new System.Drawing.Size(334, 147);
+            this.lstRollen.Size = new System.Drawing.Size(499, 147);
             this.lstRollen.Sorted = true;
             this.lstRollen.TabIndex = 38;
             // 
@@ -372,7 +345,7 @@
             this.Panel2.Controls.Add(this.chk1);
             this.Panel2.Location = new System.Drawing.Point(337, 84);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(336, 129);
+            this.Panel2.Size = new System.Drawing.Size(499, 134);
             this.Panel2.TabIndex = 37;
             // 
             // chk5
@@ -407,6 +380,8 @@
             // 
             // Panel1
             // 
+            this.Panel1.Controls.Add(this.InstId);
+            this.Panel1.Controls.Add(this.RefID);
             this.Panel1.Controls.Add(this.dateTimePicker2);
             this.Panel1.Controls.Add(this.dateTimePicker1);
             this.Panel1.Controls.Add(this.txtFinStelle);
@@ -418,11 +393,9 @@
             this.Panel1.Controls.Add(this.txtEmail);
             this.Panel1.Controls.Add(this.Label8);
             this.Panel1.Controls.Add(this.label5);
-            this.Panel1.Controls.Add(this.RefID);
             this.Panel1.Controls.Add(this.label4);
             this.Panel1.Controls.Add(this.txtTel);
             this.Panel1.Controls.Add(this.Label7);
-            this.Panel1.Controls.Add(this.InstId);
             this.Panel1.Controls.Add(this.txtEinr);
             this.Panel1.Controls.Add(this.Label6);
             this.Panel1.Controls.Add(this.Vorname);
@@ -437,14 +410,12 @@
             this.Panel1.Size = new System.Drawing.Size(289, 386);
             this.Panel1.TabIndex = 34;
             // 
-            // label23
+            // dateTimePicker2
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(12, 12);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "SAP Benutzer";
+            this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
+            this.dateTimePicker2.TabIndex = 9;
             // 
             // dateTimePicker1
             // 
@@ -453,20 +424,131 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
             this.dateTimePicker1.TabIndex = 8;
             // 
-            // dateTimePicker2
+            // label23
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker2.TabIndex = 9;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(12, 11);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "SAP Benutzer";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11});
+            this.dataGridView1.Location = new System.Drawing.Point(337, 231);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(499, 83);
+            this.dataGridView1.TabIndex = 50;
+            // 
+            // benutzer
+            // 
+            this.benutzer.Location = new System.Drawing.Point(170, 488);
+            this.benutzer.Name = "benutzer";
+            this.benutzer.Size = new System.Drawing.Size(147, 23);
+            this.benutzer.TabIndex = 51;
+            this.benutzer.Text = "benutzer erstellen";
+            this.benutzer.UseVisualStyleBackColor = true;
+            this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
+            // 
+            // RefID
+            // 
+            this.RefID.Location = new System.Drawing.Point(101, 147);
+            this.RefID.Name = "RefID";
+            this.RefID.Size = new System.Drawing.Size(166, 20);
+            this.RefID.TabIndex = 23;
+            // 
+            // InstId
+            // 
+            this.InstId.Location = new System.Drawing.Point(101, 118);
+            this.InstId.Name = "InstId";
+            this.InstId.Size = new System.Drawing.Size(166, 20);
+            this.InstId.TabIndex = 24;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "SAPBenutzer";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Vorname";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 110;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Nachname";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Email";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 145;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "InstID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Finanzstelle";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "GultigVon";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "GultigBis";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "einrichtung";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Tel.Nebenstelle";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 562);
-            this.Controls.Add(this.Label18);
-            this.Controls.Add(this.txtFinadd);
+            this.ClientSize = new System.Drawing.Size(876, 544);
+            this.Controls.Add(this.benutzer);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lstRollen);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
@@ -475,11 +557,13 @@
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "iText Demo";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Panel2.ResumeLayout(false);
             this.Panel2.PerformLayout();
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,9 +572,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.RichTextBox InstId;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox RefID;
         private System.Windows.Forms.Label label5;
         internal System.Windows.Forms.TextBox txtFinStelle;
         internal System.Windows.Forms.Label Label14;
@@ -508,14 +590,12 @@
         internal System.Windows.Forms.TextBox Vorname;
         internal System.Windows.Forms.Label label13;
         internal System.Windows.Forms.CheckBox chk2;
-        internal System.Windows.Forms.Label Label18;
         internal System.Windows.Forms.TextBox txtTel;
         internal System.Windows.Forms.TextBox Nachname;
         internal System.Windows.Forms.CheckBox chk4;
         internal System.Windows.Forms.Label label15;
         internal System.Windows.Forms.Label label16;
         internal System.Windows.Forms.TextBox txtUser;
-        internal System.Windows.Forms.TextBox txtFinadd;
         internal System.Windows.Forms.Button btnRollen;
         public System.Windows.Forms.ListBox lstRollen;
         internal System.Windows.Forms.Panel Panel2;
@@ -526,6 +606,20 @@
         internal System.Windows.Forms.Label label23;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button benutzer;
+        internal System.Windows.Forms.TextBox InstId;
+        internal System.Windows.Forms.TextBox RefID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }
 
