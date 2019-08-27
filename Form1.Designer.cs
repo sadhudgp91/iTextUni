@@ -98,7 +98,7 @@
             // 
             this.BtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnSave.Location = new System.Drawing.Point(737, 487);
+            this.BtnSave.Location = new System.Drawing.Point(724, 486);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(99, 24);
             this.BtnSave.TabIndex = 13;
@@ -469,6 +469,7 @@
             // 
             // Panel1
             // 
+            this.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.Panel1.Controls.Add(this.InstId);
             this.Panel1.Controls.Add(this.RefID);
             this.Panel1.Controls.Add(this.dateTimePicker2);
@@ -494,6 +495,7 @@
             this.Panel1.Controls.Add(this.label16);
             this.Panel1.Controls.Add(this.txtUser);
             this.Panel1.Controls.Add(this.label23);
+            this.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Panel1.Location = new System.Drawing.Point(28, 84);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(289, 386);
@@ -538,7 +540,7 @@
             // 
             // benutzer
             // 
-            this.benutzer.Location = new System.Drawing.Point(100, 487);
+            this.benutzer.Location = new System.Drawing.Point(149, 487);
             this.benutzer.Name = "benutzer";
             this.benutzer.Size = new System.Drawing.Size(147, 23);
             this.benutzer.TabIndex = 51;

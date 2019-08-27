@@ -82,10 +82,9 @@ namespace iTextForm
                             PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, font));
                             cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);                            
                             //cell.Colspan = 2;
-                            pdfTable.AddCell(cell);
+                            pdfTable.AddCell(cell);                            
                         }
                        
-
                         //Adding DataRow to the pdf
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {                            
@@ -96,11 +95,25 @@ namespace iTextForm
                                 {                                   
                                   cell.Value = "null";
                                 }                               
-                                pdfTable.AddCell(Spalte0); 
+                                pdfTable.AddCell(Spalte0);
                             }
                         }
 
                         doc.Add(pdfTable);
+                        doc.Add(new Paragraph("\n"));
+                        iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("Rollen for benutzer:" + Environment.UserName.ToString(), font);                        
+                        doc.Add(header);
+                        doc.Add(new Paragraph("\n"));
+
+                        // add listbox values from checked checkboxes
+
+                        String[] items = new String[lstRollen.Items.Count];
+                        for (int loop = 0; loop < lstRollen.Items.Count; loop++)
+                        {
+                            items[loop] = lstRollen.Items[loop].ToString();
+                            iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph((items[loop].ToString()));
+                            doc.Add(rollen);
+                        }
 
                         //add space
                         doc.Add(new Paragraph("\n"));
@@ -114,8 +127,6 @@ namespace iTextForm
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
 
-                        // add listbox values from checked checkboxes                        
-                       
                         
                         //close the document
                         doc.Close();
