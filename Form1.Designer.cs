@@ -56,6 +56,8 @@
             this.txtUser = new System.Windows.Forms.TextBox();
             this.btnRollen = new System.Windows.Forms.Button();
             this.Panel2 = new System.Windows.Forms.Panel();
+            this.addfnz = new System.Windows.Forms.Button();
+            this.txtfinanz = new System.Windows.Forms.TextBox();
             this.lstRollen = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +80,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
             this.benutzer = new System.Windows.Forms.Button();
+            this.eMail = new System.Windows.Forms.Button();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Panel1.SuspendLayout();
@@ -328,6 +331,8 @@
             // 
             // Panel2
             // 
+            this.Panel2.Controls.Add(this.addfnz);
+            this.Panel2.Controls.Add(this.txtfinanz);
             this.Panel2.Controls.Add(this.lstRollen);
             this.Panel2.Controls.Add(this.dataGridView1);
             this.Panel2.Controls.Add(this.btnRollen);
@@ -341,6 +346,23 @@
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(499, 386);
             this.Panel2.TabIndex = 37;
+            // 
+            // addfnz
+            // 
+            this.addfnz.Location = new System.Drawing.Point(128, 123);
+            this.addfnz.Name = "addfnz";
+            this.addfnz.Size = new System.Drawing.Size(75, 23);
+            this.addfnz.TabIndex = 52;
+            this.addfnz.Text = "finanz";
+            this.addfnz.UseVisualStyleBackColor = true;
+            this.addfnz.Click += new System.EventHandler(this.Addfnz_Click);
+            // 
+            // txtfinanz
+            // 
+            this.txtfinanz.Location = new System.Drawing.Point(18, 125);
+            this.txtfinanz.Name = "txtfinanz";
+            this.txtfinanz.Size = new System.Drawing.Size(100, 20);
+            this.txtfinanz.TabIndex = 51;
             // 
             // lstRollen
             // 
@@ -548,11 +570,22 @@
             this.benutzer.UseVisualStyleBackColor = true;
             this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
             // 
+            // eMail
+            // 
+            this.eMail.Location = new System.Drawing.Point(611, 486);
+            this.eMail.Name = "eMail";
+            this.eMail.Size = new System.Drawing.Size(97, 24);
+            this.eMail.TabIndex = 52;
+            this.eMail.Text = "Send Email";
+            this.eMail.UseVisualStyleBackColor = true;
+            this.eMail.Click += new System.EventHandler(this.EMail_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 533);
+            this.Controls.Add(this.eMail);
             this.Controls.Add(this.benutzer);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
@@ -624,6 +657,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         public System.Windows.Forms.ListBox lstRollen;
+        private System.Windows.Forms.Button addfnz;
+        private System.Windows.Forms.TextBox txtfinanz;
+        private System.Windows.Forms.Button eMail;
     }
 }
 

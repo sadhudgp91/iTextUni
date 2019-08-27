@@ -169,9 +169,50 @@ namespace iTextForm
             // pass the values to row array
             string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
             dataGridView1.Rows.Add(row);
+
             //once data has been addded to Gridview, make print button visible
             BtnSave.Enabled = true;
             BtnSave.BackColor = Color.LawnGreen;
+
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            //Add new line.
+            csv += "\r\n";
+
+            //Adding the Rows
+            foreach (DataGridViewRow rowEntry in dataGridView1.Rows)
+            {
+                foreach (DataGridViewCell cell in rowEntry.Cells)
+                {
+                    //Add the Data rows.
+                    csv += cell.Value.ToString().Replace(",", ";") + ',';
+                }
+
+                //Add new line.
+                csv += "\r\n";
+            }
+
+            //Exporting to CSV.
+
+            string fn = "BW_USers" + "_" + DateTime.Now.ToShortDateString();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = fn.Replace("/", "-").Replace(" ", "_");
+            sfd.Filter = "(*.csv)|*.csv";
+            sfd.ShowDialog();
+            string path = sfd.FileName;
+
+            if (sfd.FileName != null)
+            {
+                //Exporting to CSV.
+                File.WriteAllText(path, csv);
+            }
         }
 
         //Checkbox values
@@ -232,6 +273,16 @@ namespace iTextForm
                 }
             }
             //RemoveDoubleEntries(lstRollen);
+        }
+
+        private void Addfnz_Click(object sender, EventArgs e)
+        {
+            lstRollen.Items.Add("O1000_P_BI_" + txtfinanz.Text);
+        }
+
+        private void EMail_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
