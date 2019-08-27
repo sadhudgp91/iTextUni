@@ -100,6 +100,9 @@ namespace iTextForm
                         }
 
                         doc.Add(pdfTable);
+
+                        //header for Rollen
+
                         doc.Add(new Paragraph("\n"));
                         iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("Rollen for benutzer:" + Environment.UserName.ToString(), font);                        
                         doc.Add(header);
@@ -110,6 +113,7 @@ namespace iTextForm
                         String[] items = new String[lstRollen.Items.Count];
                         for (int loop = 0; loop < lstRollen.Items.Count; loop++)
                         {
+                            // get rollen from listbox (after checking the checkbox)
                             items[loop] = lstRollen.Items[loop].ToString();
                             iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph((items[loop].ToString()));
                             doc.Add(rollen);
@@ -126,7 +130,6 @@ namespace iTextForm
                         iTextSharp.text.Paragraph date = new iTextSharp.text.Paragraph(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
-
                         
                         //close the document
                         doc.Close();
