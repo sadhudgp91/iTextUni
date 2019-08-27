@@ -14,6 +14,11 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Runtime.InteropServices;
+using Outlook = Microsoft.Office.Interop.Outlook;
+using Office = Microsoft.Office.Core;
+using System.Net.Mail;
+
 
 // namespace iTextForm PDF creator
 namespace iTextForm
@@ -283,6 +288,17 @@ namespace iTextForm
         private void EMail_Click(object sender, EventArgs e)
         {
 
+            //Outlook.MailItem mailItem = (Outlook.MailItem)
+            // this.Application.CreateItem(Outlook.OlItemType.olMailItem);
+            Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+            Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+            mailItem.Subject = "This is the subject";
+            mailItem.To = "someone@example.com";
+            mailItem.Body = "This is the message.";
+            mailItem.Attachments.Add("C:\\Users\\ac131128\\Desktop\\BW_USers_27.08.2019.csv");//logPath is a string holding path to the log.txt file
+            mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
+            mailItem.Display(true);
         }
+            
     }
 }

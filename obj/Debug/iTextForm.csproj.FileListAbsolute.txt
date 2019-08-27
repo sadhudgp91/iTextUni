@@ -116,3 +116,4 @@ C:\Users\ac131128\source\repos\iText\obj\Debug\iTextForm.csproj.CopyComplete
 C:\Users\ac131128\source\repos\iText\obj\Debug\iTextForm.exe
 C:\Users\ac131128\source\repos\iText\obj\Debug\iTextForm.pdb
 C:\Users\ac131128\source\repos\iText\obj\Debug\iTextForm.csprojAssemblyReference.cache
+C:\Users\ac131128\source\repos\iText\obj\Debug\iTextForm.csproj.ResolveComReference.cache
