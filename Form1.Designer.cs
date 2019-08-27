@@ -81,9 +81,13 @@
             this.label23 = new System.Windows.Forms.Label();
             this.benutzer = new System.Windows.Forms.Button();
             this.eMail = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Panel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -562,7 +566,7 @@
             // 
             // benutzer
             // 
-            this.benutzer.Location = new System.Drawing.Point(149, 487);
+            this.benutzer.Location = new System.Drawing.Point(148, 486);
             this.benutzer.Name = "benutzer";
             this.benutzer.Size = new System.Drawing.Size(147, 23);
             this.benutzer.TabIndex = 51;
@@ -580,11 +584,34 @@
             this.eMail.UseVisualStyleBackColor = true;
             this.eMail.Click += new System.EventHandler(this.EMail_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 511);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(854, 22);
+            this.statusStrip1.TabIndex = 55;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 533);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.eMail);
             this.Controls.Add(this.benutzer);
             this.Controls.Add(this.Panel2);
@@ -601,6 +628,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,6 +689,9 @@
         private System.Windows.Forms.Button addfnz;
         private System.Windows.Forms.TextBox txtfinanz;
         private System.Windows.Forms.Button eMail;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

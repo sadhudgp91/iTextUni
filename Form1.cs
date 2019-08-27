@@ -32,6 +32,8 @@ namespace iTextForm
             //Hide print button
             BtnSave.Enabled = false;
             BtnSave.BackColor = Color.Gray;
+            toolStripStatusLabel1.Text = "Initialized";
+            statusStrip1.BackColor = Color.Green;
         }
 
         // KS: Function to save the data into PDF format
@@ -135,10 +137,10 @@ namespace iTextForm
                         iTextSharp.text.Paragraph date = new iTextSharp.text.Paragraph(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
-                        
+                        toolStripStatusLabel1.Text = "PDF Generated";
                         //close the document
                         doc.Close();
-                        Application.Exit();
+                        //Application.Exit();
                     }
                     catch (Exception ex)
                     {
@@ -276,7 +278,11 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                 }
+                toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
+                statusStrip1.Refresh();
             }
+
+           
             //RemoveDoubleEntries(lstRollen);
         }
 
@@ -299,6 +305,10 @@ namespace iTextForm
             mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
             mailItem.Display(true);
         }
-            
+
+        private void ToolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
