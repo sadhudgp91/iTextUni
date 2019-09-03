@@ -308,6 +308,7 @@ namespace iTextForm
                     pdfTable.AddCell(datacell);
                 }
 
+               
 
                 //Adding DataRow to the pdf
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -315,17 +316,15 @@ namespace iTextForm
                     foreach (DataGridViewCell cell in row.Cells)
                     {
 
-                        PdfPCell Spalte0 = new PdfPCell(new Phrase(cell.Value.ToString(), fontcell));
+                        PdfPCell cellvalue = new PdfPCell(new Phrase(cell.Value.ToString(), fontcell));
                         if (cell.Value == null)
                         {
                             cell.Value = "null";
                         }
-                        pdfTable.AddCell(Spalte0);
+                        pdfTable.AddCell(cellvalue);
                         
                     }
-
                 }
-
 
                 doc.Add(pdfTable);
 
@@ -335,6 +334,7 @@ namespace iTextForm
                 iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("Rollen for benutzer:" + sapuser, fontcell);
                 doc.Add(header);
                 doc.Add(new Paragraph("\n"));
+
 
                 // add listbox values from checked checkboxes
 
@@ -346,7 +346,8 @@ namespace iTextForm
                     iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph((items[loop].ToString()));
                     doc.Add(rollen);
                 }
-                                
+
+            
 
                 //add space
                 doc.Add(new Paragraph("\n"));
