@@ -290,14 +290,7 @@ namespace iTextForm
 
         private void EMail_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-            Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
-            mailItem.Subject = "This is the subject";
-            mailItem.To = "someone@example.com";
-            mailItem.Body = "This is the message.";
-            mailItem.Attachments.Add("L:\\ZVD_Schnittstellen\\SAP_Userverwaltung\\BW_USers_27.08.2019.csv");//change the path here for csv
-            mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
-            mailItem.Display(true);
+           
         }
 
         private void ToolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -348,6 +341,16 @@ namespace iTextForm
                 statusStrip1.BackColor = Color.Green;
                 toolStripStatusLabel1.ForeColor = Color.White;
                 toolStripStatusLabel1.Text = "CSV Generated in: " + sfd.FileName;
+
+                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                mailItem.Subject = "This is the subject";
+                mailItem.To = "someone@example.com";
+                mailItem.Body = "This is the message.";
+                mailItem.Attachments.Add((path)); //change the path here for csv
+                mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
+                mailItem.Display(true);
+
             }
         }
     }

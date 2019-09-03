@@ -584,6 +584,7 @@
             this.eMail.TabIndex = 52;
             this.eMail.Text = "Send Email";
             this.eMail.UseVisualStyleBackColor = true;
+            this.eMail.Visible = false;
             this.eMail.Click += new System.EventHandler(this.EMail_Click);
             // 
             // statusStrip1
