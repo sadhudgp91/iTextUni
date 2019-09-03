@@ -482,8 +482,26 @@ namespace iTextForm
                 finally
                 {
                     doc.Close();
-             }
-           
+                }
+
+                //Send Email
+
+                string[] attachFilePath = Directory.GetFiles(newPath);
+                var files = attachFilePath.Where(x => Path.GetExtension(x).Contains(".pdf") ||
+                            Path.GetExtension(x).Contains(".csv"));
+                
+
+                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                mailItem.Subject = "This is the subject";
+                mailItem.To = "someone@example.com";
+                mailItem.Body = "This is the message.";
+                foreach (var file in files)
+                {                    
+                    mailItem.Attachments.Add(file);
+                }                
+                mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
+                mailItem.Display(true);
         }
 
         private void Label2_Click(object sender, EventArgs e)
