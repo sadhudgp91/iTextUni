@@ -42,10 +42,12 @@ namespace iTextForm
             // declare image instance            
             string imagepath = Environment.CurrentDirectory;
             var exportImage = System.IO.Path.Combine(imagepath, "..\\..\\public\\unistuttgart.png");
+            string fnPdf = "BW_User_Rollen" + "_" + DateTime.Now.ToShortDateString();
 
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
+            using (SaveFileDialog sfdPDF = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                sfdPDF.FileName = fnPdf.Replace("/", "-").Replace(" ", "_");
+                if (sfdPDF.ShowDialog() == DialogResult.OK)
                 {
                     // create pdf document instance
                     iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
@@ -60,7 +62,7 @@ namespace iTextForm
                     try
                     {
                         //create a new instance of PDF
-                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        PdfWriter.GetInstance(doc, new FileStream(sfdPDF.FileName, FileMode.Create));
                         doc.Open();       
                         //add the image *Uni Logo* to the pdf
                         iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(exportImage);
@@ -137,7 +139,7 @@ namespace iTextForm
                         iTextSharp.text.Paragraph date = new iTextSharp.text.Paragraph(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
-                        toolStripStatusLabel1.Text = "PDF Generated";
+                        toolStripStatusLabel1.Text = "PDF Generated in: " + sfdPDF.FileName;
                         //close the document
                         doc.Close();
                         //Application.Exit();
@@ -176,7 +178,7 @@ namespace iTextForm
             // pass the values to row array
             string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
             dataGridView1.Rows.Add(row);
-
+            toolStripStatusLabel1.Text = "Data Entered in GridView and Database";
             //once data has been addded to Gridview, make print button visible
             BtnSave.Enabled = true;
             BtnSave.BackColor = Color.LawnGreen;
@@ -219,6 +221,7 @@ namespace iTextForm
             {
                 //Exporting to CSV.
                 File.WriteAllText(path, csv);
+                toolStripStatusLabel1.Text = "CSV Generated in: " + sfd.FileName;
             }
         }
 
@@ -293,15 +296,12 @@ namespace iTextForm
 
         private void EMail_Click(object sender, EventArgs e)
         {
-
-            //Outlook.MailItem mailItem = (Outlook.MailItem)
-            // this.Application.CreateItem(Outlook.OlItemType.olMailItem);
             Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
             Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
             mailItem.Subject = "This is the subject";
             mailItem.To = "someone@example.com";
             mailItem.Body = "This is the message.";
-            mailItem.Attachments.Add("C:\\Users\\ac131128\\Desktop\\BW_USers_27.08.2019.csv");//logPath is a string holding path to the log.txt file
+            mailItem.Attachments.Add("L:\\ZVD_Schnittstellen\\SAP_Userverwaltung\\BW_USers_27.08.2019.csv");//change the path here for csv
             mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
             mailItem.Display(true);
         }
