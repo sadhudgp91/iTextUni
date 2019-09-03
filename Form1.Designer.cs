@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnSave = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFinStelle = new System.Windows.Forms.TextBox();
@@ -80,14 +79,16 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
             this.benutzer = new System.Windows.Forms.Button();
-            this.eMail = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.btnExport = new System.Windows.Forms.Button();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnCSV = new System.Windows.Forms.Button();
+            this.username = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -95,23 +96,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.label1.ForeColor = System.Drawing.Color.Crimson;
-            this.label1.Location = new System.Drawing.Point(23, 19);
+            this.label1.Location = new System.Drawing.Point(23, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 25);
+            this.label1.Size = new System.Drawing.Size(212, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "PDF Formulare Test";
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnSave.Location = new System.Drawing.Point(724, 476);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(99, 24);
-            this.BtnSave.TabIndex = 13;
-            this.BtnSave.Text = "PDF generieren";
-            this.BtnSave.UseVisualStyleBackColor = false;
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click_1);
+            this.label1.Text = "BW_User_Rolle Test";
             // 
             // label4
             // 
@@ -325,7 +314,7 @@
             // 
             // btnRollen
             // 
-            this.btnRollen.Location = new System.Drawing.Point(16, 151);
+            this.btnRollen.Location = new System.Drawing.Point(16, 125);
             this.btnRollen.Name = "btnRollen";
             this.btnRollen.Size = new System.Drawing.Size(188, 33);
             this.btnRollen.TabIndex = 19;
@@ -353,7 +342,7 @@
             // 
             // addfnz
             // 
-            this.addfnz.Location = new System.Drawing.Point(128, 123);
+            this.addfnz.Location = new System.Drawing.Point(131, 161);
             this.addfnz.Name = "addfnz";
             this.addfnz.Size = new System.Drawing.Size(75, 23);
             this.addfnz.TabIndex = 52;
@@ -363,7 +352,7 @@
             // 
             // txtfinanz
             // 
-            this.txtfinanz.Location = new System.Drawing.Point(18, 125);
+            this.txtfinanz.Location = new System.Drawing.Point(18, 164);
             this.txtfinanz.Name = "txtfinanz";
             this.txtfinanz.Size = new System.Drawing.Size(100, 20);
             this.txtfinanz.TabIndex = 18;
@@ -477,7 +466,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(334, 55);
+            this.label21.Location = new System.Drawing.Point(350, 69);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(56, 13);
             this.label21.TabIndex = 36;
@@ -487,7 +476,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(25, 55);
+            this.label22.Location = new System.Drawing.Point(27, 67);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(94, 13);
             this.label22.TabIndex = 35;
@@ -522,7 +511,7 @@
             this.Panel1.Controls.Add(this.txtUser);
             this.Panel1.Controls.Add(this.label23);
             this.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Panel1.Location = new System.Drawing.Point(28, 84);
+            this.Panel1.Location = new System.Drawing.Point(15, 84);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(289, 386);
             this.Panel1.TabIndex = 34;
@@ -568,7 +557,7 @@
             // 
             // benutzer
             // 
-            this.benutzer.Location = new System.Drawing.Point(77, 476);
+            this.benutzer.Location = new System.Drawing.Point(64, 476);
             this.benutzer.Name = "benutzer";
             this.benutzer.Size = new System.Drawing.Size(218, 23);
             this.benutzer.TabIndex = 51;
@@ -576,60 +565,71 @@
             this.benutzer.UseVisualStyleBackColor = true;
             this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
             // 
-            // eMail
-            // 
-            this.eMail.Location = new System.Drawing.Point(611, 476);
-            this.eMail.Name = "eMail";
-            this.eMail.Size = new System.Drawing.Size(97, 24);
-            this.eMail.TabIndex = 52;
-            this.eMail.Text = "Send Email";
-            this.eMail.UseVisualStyleBackColor = true;
-            this.eMail.Visible = false;
-            this.eMail.Click += new System.EventHandler(this.EMail_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.AutoSize = false;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 511);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 512);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(854, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(854, 21);
             this.statusStrip1.Stretch = false;
             this.statusStrip1.TabIndex = 55;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(710, 476);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(113, 23);
+            this.btnExport.TabIndex = 56;
+            this.btnExport.Text = "Ende";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
+            // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 16);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // btnCSV
+            // username
             // 
-            this.btnCSV.Location = new System.Drawing.Point(353, 477);
-            this.btnCSV.Name = "btnCSV";
-            this.btnCSV.Size = new System.Drawing.Size(113, 23);
-            this.btnCSV.TabIndex = 56;
-            this.btnCSV.Text = "CSV Generieren";
-            this.btnCSV.UseVisualStyleBackColor = true;
-            this.btnCSV.Click += new System.EventHandler(this.BtnCSV_Click);
+            this.username.AutoSize = true;
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.username.ForeColor = System.Drawing.Color.DimGray;
+            this.username.Location = new System.Drawing.Point(24, 36);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(53, 20);
+            this.username.TabIndex = 57;
+            this.username.Text = "label2";
+            this.username.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::iTextForm.Properties.Resources._2__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(652, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 50);
+            this.pictureBox1.TabIndex = 58;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 533);
-            this.Controls.Add(this.btnCSV);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.username);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.eMail);
             this.Controls.Add(this.benutzer);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.Panel1);
-            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "iText Demo";
@@ -641,6 +641,7 @@
             this.Panel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -648,7 +649,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         internal System.Windows.Forms.TextBox txtFinStelle;
@@ -699,10 +699,11 @@
         public System.Windows.Forms.ListBox lstRollen;
         private System.Windows.Forms.Button addfnz;
         private System.Windows.Forms.TextBox txtfinanz;
-        private System.Windows.Forms.Button eMail;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button btnCSV;
+        private System.Windows.Forms.Label username;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
