@@ -80,8 +80,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.benutzer = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.btnExport = new System.Windows.Forms.Button();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnExport = new System.Windows.Forms.Button();
             this.username = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel2.SuspendLayout();
@@ -326,8 +326,10 @@
             // 
             this.Panel2.Controls.Add(this.addfnz);
             this.Panel2.Controls.Add(this.txtfinanz);
+            this.Panel2.Controls.Add(this.btnExport);
             this.Panel2.Controls.Add(this.lstRollen);
             this.Panel2.Controls.Add(this.dataGridView1);
+            this.Panel2.Controls.Add(this.benutzer);
             this.Panel2.Controls.Add(this.btnRollen);
             this.Panel2.Controls.Add(this.chk5);
             this.Panel2.Controls.Add(this.chk4);
@@ -335,7 +337,7 @@
             this.Panel2.Controls.Add(this.chk2);
             this.Panel2.Controls.Add(this.chk1);
             this.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Panel2.Location = new System.Drawing.Point(337, 84);
+            this.Panel2.Location = new System.Drawing.Point(334, 94);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(499, 386);
             this.Panel2.TabIndex = 37;
@@ -384,10 +386,10 @@
             this.Column9,
             this.Column10,
             this.Column11});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 190);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 190);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(468, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(468, 139);
             this.dataGridView1.TabIndex = 50;
             // 
             // Column2
@@ -466,7 +468,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(350, 69);
+            this.label21.Location = new System.Drawing.Point(347, 69);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(56, 13);
             this.label21.TabIndex = 36;
@@ -476,7 +478,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(27, 67);
+            this.label22.Location = new System.Drawing.Point(24, 69);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(94, 13);
             this.label22.TabIndex = 35;
@@ -511,7 +513,7 @@
             this.Panel1.Controls.Add(this.txtUser);
             this.Panel1.Controls.Add(this.label23);
             this.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Panel1.Location = new System.Drawing.Point(15, 84);
+            this.Panel1.Location = new System.Drawing.Point(13, 98);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(289, 386);
             this.Panel1.TabIndex = 34;
@@ -557,7 +559,7 @@
             // 
             // benutzer
             // 
-            this.benutzer.Location = new System.Drawing.Point(64, 476);
+            this.benutzer.Location = new System.Drawing.Point(16, 348);
             this.benutzer.Name = "benutzer";
             this.benutzer.Size = new System.Drawing.Size(218, 23);
             this.benutzer.TabIndex = 51;
@@ -570,22 +572,12 @@
             this.statusStrip1.AutoSize = false;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 512);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 488);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(854, 21);
+            this.statusStrip1.Size = new System.Drawing.Size(852, 21);
             this.statusStrip1.Stretch = false;
             this.statusStrip1.TabIndex = 55;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(710, 476);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(113, 23);
-            this.btnExport.TabIndex = 56;
-            this.btnExport.Text = "Ende";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
             // 
             // toolStripStatusLabel1
             // 
@@ -593,6 +585,16 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 16);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(371, 348);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(113, 23);
+            this.btnExport.TabIndex = 56;
+            this.btnExport.Text = "Ende";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
             // 
             // username
             // 
@@ -604,7 +606,6 @@
             this.username.Size = new System.Drawing.Size(53, 20);
             this.username.TabIndex = 57;
             this.username.Text = "label2";
-            this.username.Click += new System.EventHandler(this.Label2_Click);
             // 
             // pictureBox1
             // 
@@ -614,18 +615,15 @@
             this.pictureBox1.Size = new System.Drawing.Size(181, 50);
             this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 533);
+            this.ClientSize = new System.Drawing.Size(852, 509);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.username);
-            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.benutzer);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
