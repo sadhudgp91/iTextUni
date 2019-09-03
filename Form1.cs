@@ -141,6 +141,7 @@ namespace iTextForm
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
                         statusStrip1.BackColor = Color.Green;
+                        toolStripStatusLabel1.ForeColor = Color.White;
                         toolStripStatusLabel1.Text = "PDF Generated in: " + sfdPDF.FileName;
                         //close the document
                         doc.Close();
@@ -273,6 +274,7 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                 }
+                statusStrip1.BackColor = Color.Green;
                 toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
                 statusStrip1.Refresh();
             }
@@ -343,6 +345,8 @@ namespace iTextForm
             {
                 //Exporting to CSV.
                 File.WriteAllText(path, csv);
+                statusStrip1.BackColor = Color.Green;
+                toolStripStatusLabel1.ForeColor = Color.White;
                 toolStripStatusLabel1.Text = "CSV Generated in: " + sfd.FileName;
             }
         }

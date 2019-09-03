@@ -1,19 +1,20 @@
 .vs
-/.vs
-.*
-!/.gitignore
-bin
-obj
-/build/
-*.suo
-*.user
-_ReSharper.*/
-*.sdf
 bin/
 obj/
-Debug/
-Release/
-*.exe
-*.pdb
-*.manifest
-*.cache
+/.vs
+.*
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
