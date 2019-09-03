@@ -31,9 +31,10 @@ namespace iTextForm
             InitializeComponent();
             //Hide print button
             BtnSave.Enabled = false;
-            BtnSave.BackColor = Color.Gray;
+            btnCSV.Enabled = false;
+            //BtnSave.BackColor = Color.Gray;
             toolStripStatusLabel1.Text = "Initialized";
-            statusStrip1.BackColor = Color.Green;
+            statusStrip1.BackColor = Color.ForestGreen;
         }
 
         // KS: Function to save the data into PDF format
@@ -139,6 +140,7 @@ namespace iTextForm
                         iTextSharp.text.Paragraph date = new iTextSharp.text.Paragraph(("Date:" + DateTime.Now.ToString("dd/MM/yyyy")).Replace('-', '/'));
                         date.Alignment = iTextSharp.text.Element.ALIGN_RIGHT;
                         doc.Add(date);
+                        statusStrip1.BackColor = Color.Green;
                         toolStripStatusLabel1.Text = "PDF Generated in: " + sfdPDF.FileName;
                         //close the document
                         doc.Close();
@@ -146,6 +148,7 @@ namespace iTextForm
                     }
                     catch (Exception ex)
                     {
+                        statusStrip1.BackColor = Color.Red;
                         MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
@@ -178,51 +181,40 @@ namespace iTextForm
             // pass the values to row array
             string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
             dataGridView1.Rows.Add(row);
+            statusStrip1.BackColor = Color.LawnGreen;
+            toolStripStatusLabel1.ForeColor = Color.Black;
             toolStripStatusLabel1.Text = "Data Entered in GridView and Database";
             //once data has been addded to Gridview, make print button visible
             BtnSave.Enabled = true;
+            btnCSV.Enabled = true;
             BtnSave.BackColor = Color.LawnGreen;
+            btnCSV.BackColor = Color.LawnGreen;
 
-            //Build the CSV file data as a Comma separated string.
-            string csv = string.Empty;
 
-            //Add the Header row for CSV file.
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-            {
-                csv += column.HeaderText + ',';
-            }
+            // Clear form for new user entry
 
-            //Add new line.
-            csv += "\r\n";
-
-            //Adding the Rows
-            foreach (DataGridViewRow rowEntry in dataGridView1.Rows)
-            {
-                foreach (DataGridViewCell cell in rowEntry.Cells)
-                {
-                    //Add the Data rows.
-                    csv += cell.Value.ToString().Replace(",", ";") + ',';
-                }
-
-                //Add new line.
-                csv += "\r\n";
-            }
-
-            //Exporting to CSV.
-
-            string fn = "BW_USers" + "_" + DateTime.Now.ToShortDateString();
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.FileName = fn.Replace("/", "-").Replace(" ", "_");
-            sfd.Filter = "(*.csv)|*.csv";
-            sfd.ShowDialog();
-            string path = sfd.FileName;
-
-            if (sfd.FileName != null)
-            {
-                //Exporting to CSV.
-                File.WriteAllText(path, csv);
-                toolStripStatusLabel1.Text = "CSV Generated in: " + sfd.FileName;
-            }
+            txtUser.Text = "";
+            cmbAnrede.Text = "";
+            Vorname.Text = "";
+            Nachname.Text = "";
+            txtEmail.Text = "";
+            InstId.Text = "";
+            RefID.Text = "";
+            txtFinStelle.Text = "";
+            dateTimePicker1.Text = "";
+            dateTimePicker2.Text = "";
+            txtEinr.Text = "";
+            txtTel.Text = "";
+            txtEmail.Text = "";
+            txtfinanz.Text = "";
+            chk1.Checked = false; 
+            chk2.Checked = false;
+            chk3.Checked = false;
+            chk4.Checked = false;
+            chk5.Checked = false;
+            lstRollen.Items.Clear();
+            toolStripStatusLabel1.Text = "Please Enter new User";
+            statusStrip1.BackColor = Color.CadetBlue;
         }
 
         //Checkbox values
@@ -309,6 +301,50 @@ namespace iTextForm
         private void ToolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnCSV_Click(object sender, EventArgs e)
+        {
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            //Add new line.
+            csv += "\r\n";
+
+            //Adding the Rows
+            foreach (DataGridViewRow rowEntry in dataGridView1.Rows)
+            {
+                foreach (DataGridViewCell cell in rowEntry.Cells)
+                {
+                    //Add the Data rows.
+                    csv += cell.Value.ToString().Replace(",", ";") + ',';
+                }
+
+                //Add new line.
+                csv += "\r\n";
+            }
+
+            //Exporting to CSV.
+
+            string fn = "BW_USers" + "_" + DateTime.Now.ToShortDateString();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = fn.Replace("/", "-").Replace(" ", "_");
+            sfd.Filter = "(*.csv)|*.csv";
+            sfd.ShowDialog();
+            string path = sfd.FileName;
+
+            if (sfd.FileName != null)
+            {
+                //Exporting to CSV.
+                File.WriteAllText(path, csv);
+                toolStripStatusLabel1.Text = "CSV Generated in: " + sfd.FileName;
+            }
         }
     }
 }

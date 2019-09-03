@@ -83,6 +83,7 @@
             this.eMail = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnCSV = new System.Windows.Forms.Button();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Panel1.SuspendLayout();
@@ -102,7 +103,7 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnSave.BackColor = System.Drawing.Color.Transparent;
             this.BtnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BtnSave.Location = new System.Drawing.Point(724, 476);
             this.BtnSave.Name = "BtnSave";
@@ -542,6 +543,7 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
@@ -549,6 +551,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(102, 219);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
@@ -602,11 +605,22 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // btnCSV
+            // 
+            this.btnCSV.Location = new System.Drawing.Point(353, 477);
+            this.btnCSV.Name = "btnCSV";
+            this.btnCSV.Size = new System.Drawing.Size(113, 23);
+            this.btnCSV.TabIndex = 56;
+            this.btnCSV.Text = "CSV Generieren";
+            this.btnCSV.UseVisualStyleBackColor = true;
+            this.btnCSV.Click += new System.EventHandler(this.BtnCSV_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 533);
+            this.Controls.Add(this.btnCSV);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.eMail);
             this.Controls.Add(this.benutzer);
@@ -687,6 +701,7 @@
         private System.Windows.Forms.Button eMail;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button btnCSV;
     }
 }
 
