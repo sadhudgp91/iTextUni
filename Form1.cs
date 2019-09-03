@@ -232,6 +232,9 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
+                    statusStrip1.BackColor = Color.Green;
+                    toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
+                    statusStrip1.Refresh();
                 }
                 if (chk2.Checked)
                 {
@@ -241,6 +244,9 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
+                    statusStrip1.BackColor = Color.Green;
+                    toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
+                    statusStrip1.Refresh();
                 }
                 if (chk3.Checked)
                 {
@@ -250,6 +256,9 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
+                    statusStrip1.BackColor = Color.Green;
+                    toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
+                    statusStrip1.Refresh();
                 }
                 if (chk4.Checked)
                 {
@@ -259,6 +268,9 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
+                    statusStrip1.BackColor = Color.Green;
+                    toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
+                    statusStrip1.Refresh();
                 }
                 if (chk5.Checked)
                 {
@@ -273,10 +285,11 @@ namespace iTextForm
                     withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
+                    statusStrip1.BackColor = Color.Green;
+                    toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
+                    statusStrip1.Refresh();
                 }
-                statusStrip1.BackColor = Color.Green;
-                toolStripStatusLabel1.Text = "Benutzerdaten eingegeben";
-                statusStrip1.Refresh();
+               
             }
 
            

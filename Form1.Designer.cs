@@ -155,7 +155,7 @@
             this.chk1.Location = new System.Drawing.Point(18, 10);
             this.chk1.Name = "chk1";
             this.chk1.Size = new System.Drawing.Size(186, 17);
-            this.chk1.TabIndex = 0;
+            this.chk1.TabIndex = 13;
             this.chk1.Text = "Mittelbewirtschafter Personal DZE";
             this.chk1.UseVisualStyleBackColor = true;
             // 
@@ -210,7 +210,7 @@
             this.chk3.Location = new System.Drawing.Point(18, 56);
             this.chk3.Name = "chk3";
             this.chk3.Size = new System.Drawing.Size(188, 17);
-            this.chk3.TabIndex = 2;
+            this.chk3.TabIndex = 15;
             this.chk3.Text = "Inventarisierungsbeauftragter DZE";
             this.chk3.UseVisualStyleBackColor = true;
             // 
@@ -270,7 +270,7 @@
             this.chk2.Location = new System.Drawing.Point(18, 33);
             this.chk2.Name = "chk2";
             this.chk2.Size = new System.Drawing.Size(145, 17);
-            this.chk2.TabIndex = 1;
+            this.chk2.TabIndex = 14;
             this.chk2.Text = "Mittelbewirtschafter  DZE";
             this.chk2.UseVisualStyleBackColor = true;
             // 
@@ -294,7 +294,7 @@
             this.chk4.Location = new System.Drawing.Point(18, 79);
             this.chk4.Name = "chk4";
             this.chk4.Size = new System.Drawing.Size(160, 17);
-            this.chk4.TabIndex = 3;
+            this.chk4.TabIndex = 16;
             this.chk4.Text = "Budgetverantwortlicher DZE";
             this.chk4.UseVisualStyleBackColor = true;
             // 
@@ -328,7 +328,7 @@
             this.btnRollen.Location = new System.Drawing.Point(16, 151);
             this.btnRollen.Name = "btnRollen";
             this.btnRollen.Size = new System.Drawing.Size(188, 33);
-            this.btnRollen.TabIndex = 5;
+            this.btnRollen.TabIndex = 19;
             this.btnRollen.Text = "Rollen zusammenstellen/entfernen";
             this.btnRollen.UseVisualStyleBackColor = true;
             this.btnRollen.Click += new System.EventHandler(this.BtnRollen_Click);
@@ -366,7 +366,7 @@
             this.txtfinanz.Location = new System.Drawing.Point(18, 125);
             this.txtfinanz.Name = "txtfinanz";
             this.txtfinanz.Size = new System.Drawing.Size(100, 20);
-            this.txtfinanz.TabIndex = 51;
+            this.txtfinanz.TabIndex = 18;
             // 
             // lstRollen
             // 
@@ -469,7 +469,7 @@
             this.chk5.Location = new System.Drawing.Point(18, 102);
             this.chk5.Name = "chk5";
             this.chk5.Size = new System.Drawing.Size(133, 17);
-            this.chk5.TabIndex = 4;
+            this.chk5.TabIndex = 17;
             this.chk5.Text = "Alle Aufgabenbereiche";
             this.chk5.UseVisualStyleBackColor = true;
             // 
@@ -532,14 +532,14 @@
             this.InstId.Location = new System.Drawing.Point(101, 118);
             this.InstId.Name = "InstId";
             this.InstId.Size = new System.Drawing.Size(166, 20);
-            this.InstId.TabIndex = 24;
+            this.InstId.TabIndex = 5;
             // 
             // RefID
             // 
             this.RefID.Location = new System.Drawing.Point(101, 147);
             this.RefID.Name = "RefID";
             this.RefID.Size = new System.Drawing.Size(166, 20);
-            this.RefID.TabIndex = 23;
+            this.RefID.TabIndex = 6;
             // 
             // dateTimePicker2
             // 
@@ -568,11 +568,11 @@
             // 
             // benutzer
             // 
-            this.benutzer.Location = new System.Drawing.Point(148, 476);
+            this.benutzer.Location = new System.Drawing.Point(77, 476);
             this.benutzer.Name = "benutzer";
-            this.benutzer.Size = new System.Drawing.Size(147, 23);
+            this.benutzer.Size = new System.Drawing.Size(218, 23);
             this.benutzer.TabIndex = 51;
-            this.benutzer.Text = "benutzer erstellen";
+            this.benutzer.Text = "Benutzer zu der Liste hinzufügen !";
             this.benutzer.UseVisualStyleBackColor = true;
             this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
             // 
