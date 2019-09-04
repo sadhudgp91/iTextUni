@@ -63,23 +63,23 @@ namespace iTextForm
             string von = dateTimePicker1.Text;
             string bis = dateTimePicker2.Text;
             string einrichtung = txtEinr.Text;
-            string tel = txtTel.Text;                       
-                                     
-           
+            string tel = txtTel.Text;
+            string pass = txtInitPass.Text;
+
             // add listbox values to variable Zeile
 
             for (var i = 0; i <= lstRollen.Items.Count -1; i++)
             {               
                 Zeile += sapuser + ";B3P;" + lstRollen.Items[i].ToString();
-                Zeile += "\r\n";                
-                RollenUsers += "Benutzer: " + sapuser + "\r\n" + lstRollen.Items[i].ToString() + "\r\n";               
+                Zeile += "\r\n";
+                RollenUsers += sapuser + "\r\n" + lstRollen.Items[i].ToString() + "\r\n";      
             }
 
             SapUserName += sapuser + ";";
    
 
             // pass the values to row array
-            string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
+            string[] row = { sapuser, vname, Nname, pass, eMail, InstID, Finanz, von, bis, einrichtung, tel };
             dataGridView1.Rows.Add(row);
             statusStrip1.BackColor = Color.LawnGreen;
             toolStripStatusLabel1.ForeColor = Color.White;
@@ -105,6 +105,7 @@ namespace iTextForm
             txtTel.Text = "";
             txtEmail.Text = "";
             txtfinanz.Text = "";
+            txtInitPass.Text = "";
             chk1.Checked = false; 
             chk2.Checked = false;
             chk3.Checked = false;
@@ -349,13 +350,22 @@ namespace iTextForm
 
                 doc.Add(pdfTable);
 
-                doc.Add(new Paragraph("\n"));
+                doc.Add(new Paragraph("\r\n"));
 
                 //add roles for individual users
 
-                iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph("Rollen for benutzer: " + SapUserName + "\r\n" + (RollenUsers.ToString()), fontHeader);
-                doc.Add(rollen);
+                PdfPTable TableRolle = new PdfPTable(1);
+                TableRolle.DefaultCell.Padding = 1;
+                TableRolle.WidthPercentage = 100;
+                TableRolle.HorizontalAlignment = Element.ALIGN_LEFT;
+                TableRolle.DefaultCell.BorderWidth = 0;
+                PdfPCell cellvalue2 = new PdfPCell(new Phrase("Rollen for benutzer:  " + SapUserName + "\r\n" + RollenUsers.ToString() + "\r\n", fontcell));
+                iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph("Rollen for benutzer:  " + SapUserName + "\r\n" + (RollenUsers.ToString()) + "\r\n", fontHeader);
+                TableRolle.AddCell(cellvalue2);
+                doc.Add(TableRolle);
                 
+                               
+                doc.Add(new Paragraph("\r\n"));
 
                 //add space
                 doc.Add(new Paragraph("\n"));
@@ -413,6 +423,27 @@ namespace iTextForm
                 mailItem.Display(true);
         }
 
+        private void BtnGenPass2_Click(object sender, EventArgs e)
+        {
+            txtInitPass.Text = CreateRandomPassword();
+            Clipboard.SetText(txtInitPass.Text);
+        }
+
+        private static string CreateRandomPassword(int length = 8)
+        {
+            // Create a string of characters, numbers, special characters that allowed in the password  
+            string validChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?_";
+            Random random = new Random();
+
+            // Select one random character at a time from the string  
+            // and create an array of chars  
+            char[] chars = new char[length];
+            for (int i = 0; i < length; i++)
+            {
+                chars[i] = validChars[random.Next(0, validChars.Length)];
+            }
+            return new string(chars);
+        }
     }
 }
 

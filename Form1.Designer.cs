@@ -57,18 +57,10 @@
             this.Panel2 = new System.Windows.Forms.Panel();
             this.addfnz = new System.Windows.Forms.Button();
             this.txtfinanz = new System.Windows.Forms.TextBox();
+            this.btnExport = new System.Windows.Forms.Button();
             this.lstRollen = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.benutzer = new System.Windows.Forms.Button();
             this.chk5 = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -78,12 +70,23 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
-            this.benutzer = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnExport = new System.Windows.Forms.Button();
             this.username = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtInitPass = new System.Windows.Forms.TextBox();
+            this.btnGenPass2 = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Panel1.SuspendLayout();
@@ -326,10 +329,8 @@
             // 
             this.Panel2.Controls.Add(this.addfnz);
             this.Panel2.Controls.Add(this.txtfinanz);
-            this.Panel2.Controls.Add(this.btnExport);
             this.Panel2.Controls.Add(this.lstRollen);
             this.Panel2.Controls.Add(this.dataGridView1);
-            this.Panel2.Controls.Add(this.benutzer);
             this.Panel2.Controls.Add(this.btnRollen);
             this.Panel2.Controls.Add(this.chk5);
             this.Panel2.Controls.Add(this.chk4);
@@ -359,6 +360,16 @@
             this.txtfinanz.Size = new System.Drawing.Size(100, 20);
             this.txtfinanz.TabIndex = 18;
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(705, 496);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(113, 23);
+            this.btnExport.TabIndex = 56;
+            this.btnExport.Text = "Ende";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
+            // 
             // lstRollen
             // 
             this.lstRollen.AllowDrop = true;
@@ -379,6 +390,7 @@
             this.Column2,
             this.Column3,
             this.Column4,
+            this.password,
             this.Column5,
             this.Column6,
             this.Column7,
@@ -386,11 +398,182 @@
             this.Column9,
             this.Column10,
             this.Column11});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 190);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 197);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(468, 139);
+            this.dataGridView1.Size = new System.Drawing.Size(468, 174);
             this.dataGridView1.TabIndex = 50;
+            // 
+            // benutzer
+            // 
+            this.benutzer.Location = new System.Drawing.Point(350, 496);
+            this.benutzer.Name = "benutzer";
+            this.benutzer.Size = new System.Drawing.Size(218, 23);
+            this.benutzer.TabIndex = 51;
+            this.benutzer.Text = "Benutzer zu der Liste hinzufügen !";
+            this.benutzer.UseVisualStyleBackColor = true;
+            this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
+            // 
+            // chk5
+            // 
+            this.chk5.AutoSize = true;
+            this.chk5.Location = new System.Drawing.Point(18, 102);
+            this.chk5.Name = "chk5";
+            this.chk5.Size = new System.Drawing.Size(133, 17);
+            this.chk5.TabIndex = 17;
+            this.chk5.Text = "Alle Aufgabenbereiche";
+            this.chk5.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Blue;
+            this.label21.Location = new System.Drawing.Point(349, 78);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 13);
+            this.label21.TabIndex = 36;
+            this.label21.Text = "ROLLEN";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Blue;
+            this.label22.Location = new System.Drawing.Point(24, 80);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(94, 13);
+            this.label22.TabIndex = 35;
+            this.label22.Text = "GRUNDDATEN";
+            // 
+            // Panel1
+            // 
+            this.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.Panel1.Controls.Add(this.InstId);
+            this.Panel1.Controls.Add(this.RefID);
+            this.Panel1.Controls.Add(this.dateTimePicker2);
+            this.Panel1.Controls.Add(this.dateTimePicker1);
+            this.Panel1.Controls.Add(this.txtFinStelle);
+            this.Panel1.Controls.Add(this.Label14);
+            this.Panel1.Controls.Add(this.Label11);
+            this.Panel1.Controls.Add(this.Label10);
+            this.Panel1.Controls.Add(this.Label9);
+            this.Panel1.Controls.Add(this.cmbAnrede);
+            this.Panel1.Controls.Add(this.txtEmail);
+            this.Panel1.Controls.Add(this.Label8);
+            this.Panel1.Controls.Add(this.label5);
+            this.Panel1.Controls.Add(this.label4);
+            this.Panel1.Controls.Add(this.txtTel);
+            this.Panel1.Controls.Add(this.Label7);
+            this.Panel1.Controls.Add(this.txtEinr);
+            this.Panel1.Controls.Add(this.Label6);
+            this.Panel1.Controls.Add(this.Vorname);
+            this.Panel1.Controls.Add(this.label13);
+            this.Panel1.Controls.Add(this.Nachname);
+            this.Panel1.Controls.Add(this.label15);
+            this.Panel1.Controls.Add(this.label16);
+            this.Panel1.Controls.Add(this.txtUser);
+            this.Panel1.Controls.Add(this.label23);
+            this.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Panel1.Location = new System.Drawing.Point(13, 96);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(289, 386);
+            this.Panel1.TabIndex = 34;
+            // 
+            // InstId
+            // 
+            this.InstId.Location = new System.Drawing.Point(101, 118);
+            this.InstId.Name = "InstId";
+            this.InstId.Size = new System.Drawing.Size(166, 20);
+            this.InstId.TabIndex = 5;
+            // 
+            // RefID
+            // 
+            this.RefID.Location = new System.Drawing.Point(101, 147);
+            this.RefID.Name = "RefID";
+            this.RefID.Size = new System.Drawing.Size(166, 20);
+            this.RefID.TabIndex = 6;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
+            this.dateTimePicker2.TabIndex = 9;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(102, 219);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(12, 11);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "SAP Benutzer";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 543);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(870, 21);
+            this.statusStrip1.Stretch = false;
+            this.statusStrip1.TabIndex = 55;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 16);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // username
+            // 
+            this.username.AutoSize = true;
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.username.ForeColor = System.Drawing.Color.DimGray;
+            this.username.Location = new System.Drawing.Point(24, 36);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(53, 20);
+            this.username.TabIndex = 57;
+            this.username.Text = "label2";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::iTextForm.Properties.Resources._2__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(652, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 50);
+            this.pictureBox1.TabIndex = 58;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtInitPass
+            // 
+            this.txtInitPass.Location = new System.Drawing.Point(183, 499);
+            this.txtInitPass.Name = "txtInitPass";
+            this.txtInitPass.Size = new System.Drawing.Size(98, 20);
+            this.txtInitPass.TabIndex = 59;
+            // 
+            // btnGenPass2
+            // 
+            this.btnGenPass2.Location = new System.Drawing.Point(12, 499);
+            this.btnGenPass2.Name = "btnGenPass2";
+            this.btnGenPass2.Size = new System.Drawing.Size(160, 23);
+            this.btnGenPass2.TabIndex = 60;
+            this.btnGenPass2.Text = "Generiere Passwort";
+            this.btnGenPass2.UseVisualStyleBackColor = true;
+            this.btnGenPass2.Click += new System.EventHandler(this.BtnGenPass2_Click);
             // 
             // Column2
             // 
@@ -410,6 +593,12 @@
             this.Column4.HeaderText = "Nachname";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // password
+            // 
+            this.password.HeaderText = "Password";
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
             // 
             // Column5
             // 
@@ -454,176 +643,18 @@
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
-            // chk5
-            // 
-            this.chk5.AutoSize = true;
-            this.chk5.Location = new System.Drawing.Point(18, 102);
-            this.chk5.Name = "chk5";
-            this.chk5.Size = new System.Drawing.Size(133, 17);
-            this.chk5.TabIndex = 17;
-            this.chk5.Text = "Alle Aufgabenbereiche";
-            this.chk5.UseVisualStyleBackColor = true;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(347, 69);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 13);
-            this.label21.TabIndex = 36;
-            this.label21.Text = "ROLLEN";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(24, 69);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(94, 13);
-            this.label22.TabIndex = 35;
-            this.label22.Text = "GRUNDDATEN";
-            // 
-            // Panel1
-            // 
-            this.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.Panel1.Controls.Add(this.InstId);
-            this.Panel1.Controls.Add(this.RefID);
-            this.Panel1.Controls.Add(this.dateTimePicker2);
-            this.Panel1.Controls.Add(this.dateTimePicker1);
-            this.Panel1.Controls.Add(this.txtFinStelle);
-            this.Panel1.Controls.Add(this.Label14);
-            this.Panel1.Controls.Add(this.Label11);
-            this.Panel1.Controls.Add(this.Label10);
-            this.Panel1.Controls.Add(this.Label9);
-            this.Panel1.Controls.Add(this.cmbAnrede);
-            this.Panel1.Controls.Add(this.txtEmail);
-            this.Panel1.Controls.Add(this.Label8);
-            this.Panel1.Controls.Add(this.label5);
-            this.Panel1.Controls.Add(this.label4);
-            this.Panel1.Controls.Add(this.txtTel);
-            this.Panel1.Controls.Add(this.Label7);
-            this.Panel1.Controls.Add(this.txtEinr);
-            this.Panel1.Controls.Add(this.Label6);
-            this.Panel1.Controls.Add(this.Vorname);
-            this.Panel1.Controls.Add(this.label13);
-            this.Panel1.Controls.Add(this.Nachname);
-            this.Panel1.Controls.Add(this.label15);
-            this.Panel1.Controls.Add(this.label16);
-            this.Panel1.Controls.Add(this.txtUser);
-            this.Panel1.Controls.Add(this.label23);
-            this.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Panel1.Location = new System.Drawing.Point(13, 98);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(289, 386);
-            this.Panel1.TabIndex = 34;
-            // 
-            // InstId
-            // 
-            this.InstId.Location = new System.Drawing.Point(101, 118);
-            this.InstId.Name = "InstId";
-            this.InstId.Size = new System.Drawing.Size(166, 20);
-            this.InstId.TabIndex = 5;
-            // 
-            // RefID
-            // 
-            this.RefID.Location = new System.Drawing.Point(101, 147);
-            this.RefID.Name = "RefID";
-            this.RefID.Size = new System.Drawing.Size(166, 20);
-            this.RefID.TabIndex = 6;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(102, 245);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker2.TabIndex = 9;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(102, 219);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker1.TabIndex = 8;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(12, 11);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "SAP Benutzer";
-            // 
-            // benutzer
-            // 
-            this.benutzer.Location = new System.Drawing.Point(16, 348);
-            this.benutzer.Name = "benutzer";
-            this.benutzer.Size = new System.Drawing.Size(218, 23);
-            this.benutzer.TabIndex = 51;
-            this.benutzer.Text = "Benutzer zu der Liste hinzufügen !";
-            this.benutzer.UseVisualStyleBackColor = true;
-            this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.AutoSize = false;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 488);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(852, 21);
-            this.statusStrip1.Stretch = false;
-            this.statusStrip1.TabIndex = 55;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 16);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(371, 348);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(113, 23);
-            this.btnExport.TabIndex = 56;
-            this.btnExport.Text = "Ende";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
-            // 
-            // username
-            // 
-            this.username.AutoSize = true;
-            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.username.ForeColor = System.Drawing.Color.DimGray;
-            this.username.Location = new System.Drawing.Point(24, 36);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(53, 20);
-            this.username.TabIndex = 57;
-            this.username.Text = "label2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::iTextForm.Properties.Resources._2__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(652, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 50);
-            this.pictureBox1.TabIndex = 58;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 509);
+            this.ClientSize = new System.Drawing.Size(870, 564);
+            this.Controls.Add(this.btnGenPass2);
+            this.Controls.Add(this.txtInitPass);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.username);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.benutzer);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
@@ -684,16 +715,6 @@
         private System.Windows.Forms.Button benutzer;
         internal System.Windows.Forms.TextBox InstId;
         internal System.Windows.Forms.TextBox RefID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         public System.Windows.Forms.ListBox lstRollen;
         private System.Windows.Forms.Button addfnz;
         private System.Windows.Forms.TextBox txtfinanz;
@@ -702,6 +723,19 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.TextBox txtInitPass;
+        internal System.Windows.Forms.Button btnGenPass2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }
 
