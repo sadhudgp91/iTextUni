@@ -27,9 +27,10 @@ namespace iTextForm
     public partial class Form1 : Form
     {
         public string sapuser;
+        public string SapUserName = string.Empty;
         public string lstRollenItems;
         public string Zeile = string.Empty;
-
+       
         public Form1()
         {
             InitializeComponent();
@@ -63,6 +64,7 @@ namespace iTextForm
             string einrichtung = txtEinr.Text;
             string tel = txtTel.Text;
 
+            // add listbox values to variable Zeile
 
             String[] listitem = new String[lstRollen.Items.Count];
             //string Zeile = string.Empty;            
@@ -72,10 +74,19 @@ namespace iTextForm
                 Zeile += "\r\n";                
             }
 
+
+            String[] listitemUsers = new String[dataGridView1.Rows.Count];
+            //string Zeile = string.Empty;            
+            for (var i = 0; i <= dataGridView1.Rows.Count -1; i++)
+            {
+                SapUserName += dataGridView1.Rows[i].Cells[0].Value.ToString() + " ; ";
+                //Zeile += "\r\n";
+            }
+
             //foreach (var item in lstRollen.Items)
             //{
-                //lstRollenItems += item.ToString() + "\r\n";
-                //Zeile += sapuser + ";B3P;" + lstRollenItems.ToString();
+            //lstRollenItems += item.ToString() + "\r\n";
+            //Zeile += sapuser + ";B3P;" + lstRollenItems.ToString();
             //}
 
             // pass the values to row array
@@ -335,6 +346,7 @@ namespace iTextForm
                     {
 
                         PdfPCell cellvalue = new PdfPCell(new Phrase(cell.Value.ToString(), fontcell));
+                       
                         if (cell.Value == null)
                         {
                             cell.Value = "null";
@@ -349,23 +361,32 @@ namespace iTextForm
                 //header for Rollen
 
                 doc.Add(new Paragraph("\n"));
-                iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("Rollen for benutzer:" + sapuser, fontcell);
+                iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("Rollen for benutzer: " + SapUserName, fontcell);
                 doc.Add(header);
                 doc.Add(new Paragraph("\n"));
+
+                iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph((Zeile.ToString()));
+                doc.Add(rollen);
+                               
+                String[] GridItem = new String[dataGridView1.Rows.Count];              
+                for (var i = 0; i <= dataGridView1.Rows.Count - 1; i++)
+                {
+                    SapUserName += dataGridView1.Rows[i].Cells.ToString();                    
+                }
 
 
                 // add listbox values from checked checkboxes
 
-                String[] items = new String[lstRollen.Items.Count];
-                for (int loop = 0; loop < lstRollen.Items.Count; loop++)
-                {
-                    // get rollen from listbox (after checking the checkbox)
-                    items[loop] = lstRollen.Items[loop].ToString();                    
-                    iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph((items[loop].ToString()));
-                    doc.Add(rollen);
-                }
+                //String[] items = new String[lstRollen.Items.Count];
+                //for (int loop = 0; loop < lstRollen.Items.Count; loop++)
+                //{
+                // get rollen from listbox (after checking the checkbox)
+                //items[loop] = lstRollen.Items[1].ToString();                    
+                //iTextSharp.text.Paragraph rolleUser = new iTextSharp.text.Paragraph((lstRollen.Items[1].ToString()));
+                //doc.Add(rolleUser);
+                //}
 
-            
+
 
                 //add space
                 doc.Add(new Paragraph("\n"));
