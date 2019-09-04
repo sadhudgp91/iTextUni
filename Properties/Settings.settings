@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="iTextForm.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EmailTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sadhu.dgp@gmail.com</Value>
+    </Setting>
+    <Setting Name="EmailFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sap.tik@uni-stuttgart.de</Value>
+    </Setting>
+    <Setting Name="EmailSubject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">This is a test Message</Value>
+    </Setting>
+    <Setting Name="EmailBody" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">This is the body  of the message</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

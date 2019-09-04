@@ -20,6 +20,7 @@ using Office = Microsoft.Office.Core;
 using System.Net.Mail;
 
 
+
 // namespace iTextForm PDF creator
 namespace iTextForm
 {
@@ -30,7 +31,8 @@ namespace iTextForm
         public string SapUserName = string.Empty;
         public string lstRollenItems;
         public string Zeile = string.Empty;
-       
+        public string RollenUsers;
+
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +45,6 @@ namespace iTextForm
             toolStripStatusLabel1.Text = "Initialized Program for UserAccount: " + Environment.UserName;
             statusStrip1.BackColor = Color.ForestGreen;
         }
-
         
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -62,32 +63,20 @@ namespace iTextForm
             string von = dateTimePicker1.Text;
             string bis = dateTimePicker2.Text;
             string einrichtung = txtEinr.Text;
-            string tel = txtTel.Text;
-
+            string tel = txtTel.Text;                       
+                                     
+           
             // add listbox values to variable Zeile
 
-            String[] listitem = new String[lstRollen.Items.Count];
-            //string Zeile = string.Empty;            
             for (var i = 0; i <= lstRollen.Items.Count -1; i++)
             {               
                 Zeile += sapuser + ";B3P;" + lstRollen.Items[i].ToString();
                 Zeile += "\r\n";                
+                RollenUsers += "Benutzer: " + sapuser + "\r\n" + lstRollen.Items[i].ToString() + "\r\n";               
             }
 
-
-            String[] listitemUsers = new String[dataGridView1.Rows.Count];
-            //string Zeile = string.Empty;            
-            for (var i = 0; i <= dataGridView1.Rows.Count -1; i++)
-            {
-                SapUserName += dataGridView1.Rows[i].Cells[0].Value.ToString() + " ; ";
-                //Zeile += "\r\n";
-            }
-
-            //foreach (var item in lstRollen.Items)
-            //{
-            //lstRollenItems += item.ToString() + "\r\n";
-            //Zeile += sapuser + ";B3P;" + lstRollenItems.ToString();
-            //}
+            SapUserName += sapuser + ";";
+   
 
             // pass the values to row array
             string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
@@ -139,7 +128,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-LBV-RESTR");
                     withBlock.Items.Add("A1000_P_BI_LBV-DATEN");
-                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -152,7 +141,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-SKA");
                     withBlock.Items.Add("A1000_P_BI_SKA-DATEN");
-                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -165,7 +154,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-ANLA");
                     withBlock.Items.Add("A1000_P_BI_ANL-DATEN");
-                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -178,7 +167,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-BUDGET");
                     withBlock.Items.Add("A1000_P_BI_SKA-DATEN");
-                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -196,7 +185,7 @@ namespace iTextForm
                     withBlock.Items.Add("A1000_P_BI_LBV-DATEN");
                     withBlock.Items.Add("A1000_P_BI_SKA-DATEN");
                     withBlock.Items.Add("A1000_P_BI_ANL-DATEN");
-                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -270,17 +259,7 @@ namespace iTextForm
                 csv += "\r\n";
             }
 
-            //Exporting to CSV.
-
-            
-
-            // String[] listitem = new String[lstRollen.Items.Count];
-            //string Zeile = string.Empty;            
-            //for (var i = 0; i <= lstRollen.Items.Count -1; i++)
-            //{               
-                //Zeile += sapuser + ";B3P;" + lstRollen.Items[i].ToString();
-                //Zeile += "\r\n";                
-            //}
+            //Exporting to CSV Files.            
 
             File.WriteAllText(filePath2, Zeile.ToString());
             File.WriteAllText(filePath1, csv.ToString());
@@ -337,8 +316,7 @@ namespace iTextForm
                     pdfTable.AddCell(datacell);
                 }
 
-               
-
+              
                 //Adding DataRow to the pdf
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -352,41 +330,19 @@ namespace iTextForm
                             cell.Value = "null";
                         }
                         pdfTable.AddCell(cellvalue);
-                        
+                       
                     }
                 }
 
                 doc.Add(pdfTable);
 
-                //header for Rollen
-
-                doc.Add(new Paragraph("\n"));
-                iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("Rollen for benutzer: " + SapUserName, fontcell);
-                doc.Add(header);
                 doc.Add(new Paragraph("\n"));
 
-                iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph((Zeile.ToString()));
+                //add roles for individual users
+
+                iTextSharp.text.Paragraph rollen = new iTextSharp.text.Paragraph("Rollen for benutzer: " + SapUserName + "\r\n" + (RollenUsers.ToString()), fontHeader);
                 doc.Add(rollen);
-                               
-                String[] GridItem = new String[dataGridView1.Rows.Count];              
-                for (var i = 0; i <= dataGridView1.Rows.Count - 1; i++)
-                {
-                    SapUserName += dataGridView1.Rows[i].Cells.ToString();                    
-                }
-
-
-                // add listbox values from checked checkboxes
-
-                //String[] items = new String[lstRollen.Items.Count];
-                //for (int loop = 0; loop < lstRollen.Items.Count; loop++)
-                //{
-                // get rollen from listbox (after checking the checkbox)
-                //items[loop] = lstRollen.Items[1].ToString();                    
-                //iTextSharp.text.Paragraph rolleUser = new iTextSharp.text.Paragraph((lstRollen.Items[1].ToString()));
-                //doc.Add(rolleUser);
-                //}
-
-
+                
 
                 //add space
                 doc.Add(new Paragraph("\n"));
@@ -394,7 +350,6 @@ namespace iTextForm
                 spacerParagraph.SpacingBefore = 4f;
                 spacerParagraph.SpacingAfter = 1f;
                 doc.Add(spacerParagraph);
-
 
 
                 //add datestamp
@@ -425,18 +380,22 @@ namespace iTextForm
 
                 string[] attachFilePath = Directory.GetFiles(newPath);
                 var files = attachFilePath.Where(x => Path.GetExtension(x).Contains(".pdf") ||
-                            Path.GetExtension(x).Contains(".csv"));              
+                Path.GetExtension(x).Contains(".csv"));              
 
                 Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
                 Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
-                mailItem.Subject = "This is the subject";
-                mailItem.To = "someone@example.com";
-                mailItem.Body = "This is the message.";
-                foreach (var file in files)
+
+                // get values from settings or app.config key pair values and pass it to mailItem Object
+                              
+                mailItem.To = Properties.Settings.Default.EmailTo;
+                mailItem.Subject = Properties.Settings.Default.EmailSubject;
+                mailItem.Body = Properties.Settings.Default.EmailBody;
+                    foreach (var file in files)
                 {                    
                     mailItem.Attachments.Add(file);
                 }                
                 mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
+                
                 mailItem.Display(true);
         }
 
