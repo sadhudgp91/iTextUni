@@ -25,15 +25,6 @@ namespace iTextForm.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sadhu.dgp@gmail.com")]
-        public string EmailTo {
-            get {
-                return ((string)(this["EmailTo"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("sap.tik@uni-stuttgart.de")]
         public string EmailFrom {
             get {
@@ -56,6 +47,15 @@ namespace iTextForm.Properties {
         public string EmailBody {
             get {
                 return ((string)(this["EmailBody"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sdk8asjk@gmail.com")]
+        public string EmailTo {
+            get {
+                return ((string)(this["EmailTo"]));
             }
         }
     }

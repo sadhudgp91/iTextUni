@@ -224,12 +224,25 @@ namespace iTextForm
             string csv = string.Empty;
 
 
+            string configFileName = Path.Combine(Environment.CurrentDirectory, @"iTextUni.config");
+            //Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\Names.txt");
+
+            ExeConfigurationFileMap cfgMap = new ExeConfigurationFileMap();
+
+            cfgMap.ExeConfigFilename = configFileName;
+
+            Configuration cfgObj = ConfigurationManager.OpenMappedExeConfiguration(cfgMap, ConfigurationUserLevel.None);
+
+            AppSettingsSection lt = cfgObj.GetSection("appSettings") as AppSettingsSection;
+
+
+
             string desktoplink = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string FileUsers = "BW_Users_" + DateTime.Now.ToShortDateString() + ".csv";
             string FileRoles = "BW_Roles_" + DateTime.Now.ToShortDateString() + ".csv";
             string fnPdf = "BW_User_Rollen" + "_" + DateTime.Now.ToShortDateString() + ".pdf"; ;
 
-            string newPath = System.IO.Path.Combine(desktoplink, "BW_Workflow");
+            string newPath = System.IO.Path.Combine(lt.Settings["Path"].Value+"\\"+Environment.UserName+"\\Desktop\\", "BW_Workflow");
             System.IO.Directory.CreateDirectory(newPath);
 
             string filePath1 = Path.Combine(newPath, FileUsers);
@@ -386,11 +399,12 @@ namespace iTextForm
                 Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
                 // get values from settings or app.config key pair values and pass it to mailItem Object
-                              
-                mailItem.To = Properties.Settings.Default.EmailTo;
-                mailItem.Subject = Properties.Settings.Default.EmailSubject;
-                mailItem.Body = Properties.Settings.Default.EmailBody;
-                    foreach (var file in files)
+
+
+                mailItem.To = lt.Settings["EmailTo"].Value;
+                mailItem.Subject = lt.Settings["EmailSubject"].Value;
+                mailItem.Body = lt.Settings["EmailBody"].Value; 
+                foreach (var file in files)
                 {                    
                     mailItem.Attachments.Add(file);
                 }                
