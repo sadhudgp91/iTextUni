@@ -27,14 +27,16 @@ namespace iTextForm
     public partial class Form1 : Form
     {
         public string sapuser;
-        public static string lstRollenItems;
+        public string lstRollenItems;
+        public string Zeile = string.Empty;
 
         public Form1()
         {
             InitializeComponent();
             //Hide Export button
             btnExport.Enabled = false;
-  
+            addfnz.Enabled = false;
+            txtfinanz.Enabled = false;
             toolStripStatusLabel1.ForeColor = Color.White;
             username.Text = "Wilkommen " + Environment.UserName;
             toolStripStatusLabel1.Text = "Initialized Program for UserAccount: " + Environment.UserName;
@@ -60,7 +62,21 @@ namespace iTextForm
             string bis = dateTimePicker2.Text;
             string einrichtung = txtEinr.Text;
             string tel = txtTel.Text;
-            lstRollenItems = lstRollen.Items.ToString();
+
+
+            String[] listitem = new String[lstRollen.Items.Count];
+            //string Zeile = string.Empty;            
+            for (var i = 0; i <= lstRollen.Items.Count -1; i++)
+            {               
+                Zeile += sapuser + ";B3P;" + lstRollen.Items[i].ToString();
+                Zeile += "\r\n";                
+            }
+
+            //foreach (var item in lstRollen.Items)
+            //{
+                //lstRollenItems += item.ToString() + "\r\n";
+                //Zeile += sapuser + ";B3P;" + lstRollenItems.ToString();
+            //}
 
             // pass the values to row array
             string[] row = { sapuser, vname, Nname, eMail, InstID, Finanz, von, bis, einrichtung, tel };
@@ -94,7 +110,7 @@ namespace iTextForm
             chk3.Checked = false;
             chk4.Checked = false;
             chk5.Checked = false;
-            //lstRollen.Items.Clear();
+            lstRollen.Items.Clear();
             toolStripStatusLabel1.Text = "Please Enter new User";
             statusStrip1.BackColor = Color.CadetBlue;
         }
@@ -103,6 +119,8 @@ namespace iTextForm
         private void BtnRollen_Click(object sender, EventArgs e)
         {
             {
+                addfnz.Enabled = true;
+                txtfinanz.Enabled = true;
                 var withBlock = lstRollen;
                 withBlock.Items.Clear();
                 if (chk1.Checked)
@@ -110,7 +128,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-LBV-RESTR");
                     withBlock.Items.Add("A1000_P_BI_LBV-DATEN");
-                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -123,7 +141,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-SKA");
                     withBlock.Items.Add("A1000_P_BI_SKA-DATEN");
-                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -136,7 +154,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-ANLA");
                     withBlock.Items.Add("A1000_P_BI_ANL-DATEN");
-                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -149,7 +167,7 @@ namespace iTextForm
                     withBlock.Items.Add("B1000_P_BI_BASISBER");
                     withBlock.Items.Add("T1000_P_BI_INFO-USER-BUDGET");
                     withBlock.Items.Add("A1000_P_BI_SKA-DATEN");
-                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -167,7 +185,7 @@ namespace iTextForm
                     withBlock.Items.Add("A1000_P_BI_LBV-DATEN");
                     withBlock.Items.Add("A1000_P_BI_SKA-DATEN");
                     withBlock.Items.Add("A1000_P_BI_ANL-DATEN");
-                    withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
+                    //withBlock.Items.Add("O1000_P_BI_" + txtFinStelle.Text);
                     withBlock.Items.Add("O1000_P_BI_FONDS_ALL");
                     withBlock.Items.Add("O1000_P_BI_FIPOS_TITEL_RESTRIC");
                     statusStrip1.BackColor = Color.Green;
@@ -245,13 +263,13 @@ namespace iTextForm
 
             
 
-            String[] listitem = new String[lstRollen.Items.Count];
-            string Zeile = string.Empty;            
-            for (var i = 0; i <= lstRollen.Items.Count -1; i++)
-            {               
-                Zeile += sapuser + ";B3P;" + lstRollen.Items[i].ToString();
-                Zeile += "\r\n";                
-            }
+            // String[] listitem = new String[lstRollen.Items.Count];
+            //string Zeile = string.Empty;            
+            //for (var i = 0; i <= lstRollen.Items.Count -1; i++)
+            //{               
+                //Zeile += sapuser + ";B3P;" + lstRollen.Items[i].ToString();
+                //Zeile += "\r\n";                
+            //}
 
             File.WriteAllText(filePath2, Zeile.ToString());
             File.WriteAllText(filePath1, csv.ToString());
