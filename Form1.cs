@@ -18,6 +18,8 @@ using System.Runtime.InteropServices;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using Office = Microsoft.Office.Core;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
+
 
 
 
@@ -65,6 +67,15 @@ namespace iTextForm
             string einrichtung = txtEinr.Text;
             string tel = txtTel.Text;
             string pass = txtInitPass.Text;
+
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                Regex reg = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+                if (!reg.IsMatch(txtEmail.Text))
+                {
+                    toolStripStatusLabel1.Text = "This email isn't correct format";
+                }
+            }
 
             // add listbox values to variable Zeile
 
@@ -241,9 +252,9 @@ namespace iTextForm
             string desktoplink = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string FileUsers = "BW_Users_" + DateTime.Now.ToShortDateString() + ".csv";
             string FileRoles = "BW_Roles_" + DateTime.Now.ToShortDateString() + ".csv";
-            string fnPdf = "BW_User_Rollen" + "_" + DateTime.Now.ToShortDateString() + ".pdf"; ;
-
-            string newPath = System.IO.Path.Combine(lt.Settings["Path"].Value+"\\"+Environment.UserName+"\\Desktop\\", "BW_Workflow");
+            string fnPdf = "BW_User_Rollen" + "_" + DateTime.Now.ToShortDateString() + ".pdf";
+            var dirName = string.Format("{0:dd-MM-yyyy}", DateTime.Now);
+            string newPath = System.IO.Path.Combine(lt.Settings["Path"].Value+"\\"+Environment.UserName+"\\Desktop\\", "BW_Workflow", dirName);
             System.IO.Directory.CreateDirectory(newPath);
 
             string filePath1 = Path.Combine(newPath, FileUsers);
@@ -419,7 +430,7 @@ namespace iTextForm
                     mailItem.Attachments.Add(file);
                 }                
                 mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
-                
+                //show the outlook window
                 mailItem.Display(true);
         }
 
@@ -443,6 +454,31 @@ namespace iTextForm
                 chars[i] = validChars[random.Next(0, validChars.Length)];
             }
             return new string(chars);
+        }
+
+        public static bool IsValidEmailId(string InputEmail)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(InputEmail);
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
+
+        private void TxtEmail_TextChanged(object sender, EventArgs e)
+        {
+            String UserEmail = txtEmail.Text;
+            
+            if (IsValidEmailId(UserEmail))
+            {
+                toolStripStatusLabel1.Text = "This email is correct format";
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "This email isn't correct format";
+            }
+               
         }
     }
 }

@@ -57,11 +57,22 @@
             this.Panel2 = new System.Windows.Forms.Panel();
             this.addfnz = new System.Windows.Forms.Button();
             this.txtfinanz = new System.Windows.Forms.TextBox();
-            this.btnExport = new System.Windows.Forms.Button();
             this.lstRollen = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.benutzer = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chk5 = new System.Windows.Forms.CheckBox();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.benutzer = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
@@ -76,17 +87,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtInitPass = new System.Windows.Forms.TextBox();
             this.btnGenPass2 = new System.Windows.Forms.Button();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Panel1.SuspendLayout();
@@ -195,6 +195,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(166, 20);
             this.txtEmail.TabIndex = 12;
+            this.txtEmail.TextChanged += new System.EventHandler(this.TxtEmail_TextChanged);
             // 
             // chk3
             // 
@@ -360,16 +361,6 @@
             this.txtfinanz.Size = new System.Drawing.Size(100, 20);
             this.txtfinanz.TabIndex = 18;
             // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(705, 496);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(113, 23);
-            this.btnExport.TabIndex = 56;
-            this.btnExport.Text = "Ende";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
-            // 
             // lstRollen
             // 
             this.lstRollen.AllowDrop = true;
@@ -404,15 +395,73 @@
             this.dataGridView1.Size = new System.Drawing.Size(468, 174);
             this.dataGridView1.TabIndex = 50;
             // 
-            // benutzer
+            // Column2
             // 
-            this.benutzer.Location = new System.Drawing.Point(350, 496);
-            this.benutzer.Name = "benutzer";
-            this.benutzer.Size = new System.Drawing.Size(218, 23);
-            this.benutzer.TabIndex = 51;
-            this.benutzer.Text = "Benutzer zu der Liste hinzufügen !";
-            this.benutzer.UseVisualStyleBackColor = true;
-            this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
+            this.Column2.HeaderText = "SAPBenutzer";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Vorname";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 110;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Nachname";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // password
+            // 
+            this.password.HeaderText = "Password";
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Email";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 145;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "InstID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Finanzstelle";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "GultigVon";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "GultigBis";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "einrichtung";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Tel. Nr.";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // chk5
             // 
@@ -423,6 +472,26 @@
             this.chk5.TabIndex = 17;
             this.chk5.Text = "Alle Aufgabenbereiche";
             this.chk5.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(705, 496);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(113, 23);
+            this.btnExport.TabIndex = 56;
+            this.btnExport.Text = "Ende";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnCSV_Click_1);
+            // 
+            // benutzer
+            // 
+            this.benutzer.Location = new System.Drawing.Point(350, 496);
+            this.benutzer.Name = "benutzer";
+            this.benutzer.Size = new System.Drawing.Size(218, 23);
+            this.benutzer.TabIndex = 51;
+            this.benutzer.Text = "Benutzer zu der Liste hinzufügen !";
+            this.benutzer.UseVisualStyleBackColor = true;
+            this.benutzer.Click += new System.EventHandler(this.Benutzer_Click);
             // 
             // label21
             // 
@@ -574,74 +643,6 @@
             this.btnGenPass2.Text = "Generiere Passwort";
             this.btnGenPass2.UseVisualStyleBackColor = true;
             this.btnGenPass2.Click += new System.EventHandler(this.BtnGenPass2_Click);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "SAPBenutzer";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Vorname";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 110;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Nachname";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // password
-            // 
-            this.password.HeaderText = "Password";
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 145;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "InstID";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Finanzstelle";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "GultigVon";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "GultigBis";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "einrichtung";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Tel. Nr.";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
             // 
             // Form1
             // 
