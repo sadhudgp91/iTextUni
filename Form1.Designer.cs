@@ -514,6 +514,7 @@
             this.label22.Size = new System.Drawing.Size(94, 13);
             this.label22.TabIndex = 35;
             this.label22.Text = "GRUNDDATEN";
+
             // 
             // Panel1
             // 

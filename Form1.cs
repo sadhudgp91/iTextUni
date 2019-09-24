@@ -20,9 +20,6 @@ using Office = Microsoft.Office.Core;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 
-
-
-
 // namespace iTextForm PDF creator
 namespace iTextForm
 {
@@ -210,15 +207,12 @@ namespace iTextForm
 
         }
 
+        //add roles
         private void Addfnz_Click(object sender, EventArgs e)
         {
             lstRollen.Items.Add("O1000_P_BI_" + txtfinanz.Text);
         }
 
-        private void EMail_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private Phrase FormatPhrase(string value)
         {
@@ -245,8 +239,8 @@ namespace iTextForm
 
             Configuration cfgObj = ConfigurationManager.OpenMappedExeConfiguration(cfgMap, ConfigurationUserLevel.None);
 
+            //app settings
             AppSettingsSection lt = cfgObj.GetSection("appSettings") as AppSettingsSection;
-
 
 
             string desktoplink = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -434,6 +428,7 @@ namespace iTextForm
                 mailItem.Display(true);
         }
 
+        // Generate random password
         private void BtnGenPass2_Click(object sender, EventArgs e)
         {
             txtInitPass.Text = CreateRandomPassword();
@@ -456,6 +451,8 @@ namespace iTextForm
             return new string(chars);
         }
 
+        // Function to validate Email
+        
         public static bool IsValidEmailId(string InputEmail)
         {
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
@@ -466,6 +463,7 @@ namespace iTextForm
                 return false;
         }
 
+        // Email Validation
         private void TxtEmail_TextChanged(object sender, EventArgs e)
         {
             String UserEmail = txtEmail.Text;
@@ -480,6 +478,7 @@ namespace iTextForm
             }
                
         }
+
     }
 }
 
