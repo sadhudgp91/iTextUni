@@ -21,6 +21,11 @@ using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 // namespace iTextForm PDF creator
+
+// SAP BI Workflow_Master: Kaushik Sadhu 25.09.2019
+// PDF/CSV creation and email sent
+
+
 namespace iTextForm
 {
     // form1 class instance
@@ -83,8 +88,7 @@ namespace iTextForm
                 RollenUsers += sapuser + "\r\n" + lstRollen.Items[i].ToString() + "\r\n";      
             }
 
-            SapUserName += sapuser + ";";
-   
+            SapUserName += sapuser + ";";   
 
             // pass the values to row array
             string[] row = { sapuser, vname, Nname, pass, eMail, InstID, Finanz, von, bis, einrichtung, tel };
@@ -408,13 +412,14 @@ namespace iTextForm
 
                 string[] attachFilePath = Directory.GetFiles(newPath);
                 var files = attachFilePath.Where(x => Path.GetExtension(x).Contains(".pdf") ||
-                Path.GetExtension(x).Contains(".csv"));              
+                Path.GetExtension(x).Contains(".csv"));
+                
+                // Outlook Instance for Email
 
                 Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
                 Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
                 // get values from settings or app.config key pair values and pass it to mailItem Object
-
 
                 mailItem.To = lt.Settings["EmailTo"].Value;
                 mailItem.Subject = lt.Settings["EmailSubject"].Value;
@@ -463,7 +468,8 @@ namespace iTextForm
                 return false;
         }
 
-        // Email Validation
+        // Email Validation & Status Messages
+        // KS: 25.09.2019
         private void TxtEmail_TextChanged(object sender, EventArgs e)
         {
             String UserEmail = txtEmail.Text;
@@ -471,10 +477,13 @@ namespace iTextForm
             if (IsValidEmailId(UserEmail))
             {
                 toolStripStatusLabel1.Text = "This email is correct format";
+                statusStrip1.BackColor = Color.Green;
             }
             else
             {
                 toolStripStatusLabel1.Text = "This email isn't correct format";
+                statusStrip1.BackColor = Color.Red;
+                toolStripStatusLabel1.ForeColor = Color.White;
             }
                
         }
